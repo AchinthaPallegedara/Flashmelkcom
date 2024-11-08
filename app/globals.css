@@ -7,6 +7,10 @@ body {
   background-color: #faf9f7;
 }
 
+.newContainer {
+  @apply container;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

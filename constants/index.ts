@@ -87,19 +87,19 @@ export const Newimages = [
   {
     id: 1,
     src: "/1.jpg",
+    title: "test title",
     width: 600,
     height: 400,
     subImages: [
-      { id: 101, src: "/1-1.jpg", width: 300, height: 200 },
-      { id: 102, src: "/1-2.jpg", width: 300, height: 200 },
-      { id: 103, src: "/1-3.jpg", width: 300, height: 200 },
-      { id: 104, src: "/1-4.jpg", width: 300, height: 200 },
-      { id: 105, src: "/1-5.jpg", width: 300, height: 200 },
+      { id: 101, src: "/1.jpg", width: 300, height: 200 },
+      { id: 102, src: "/2.jpg", width: 300, height: 200 },
+      { id: 103, src: "/3.jpg", width: 300, height: 200 },
     ],
   },
   {
     id: 2,
     src: "/2.jpg",
+    title: "test title",
     width: 400,
     height: 300,
     subImages: [
@@ -113,6 +113,7 @@ export const Newimages = [
   {
     id: 3,
     src: "/3.jpg",
+    title: "test title",
     width: 600,
     height: 400,
     subImages: [
@@ -126,6 +127,7 @@ export const Newimages = [
   {
     id: 4,
     src: "/4.jpg",
+    title: "test title",
     width: 600,
     height: 400,
     subImages: [
@@ -139,6 +141,7 @@ export const Newimages = [
   {
     id: 5,
     src: "/5.jpg",
+    title: "test title",
     width: 400,
     height: 300,
     subImages: [
@@ -152,6 +155,7 @@ export const Newimages = [
   {
     id: 6,
     src: "/6.jpg",
+    title: "test title",
     width: 600,
     height: 400,
     subImages: [
@@ -162,5 +166,54 @@ export const Newimages = [
       { id: 605, src: "/6-5.jpg", width: 300, height: 200 },
     ],
   },
+  { id: 10, src: "/4.jpg", title: "test title", width: 600, height: 400 },
+  { id: 11, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 12, src: "/6.jpg", title: "test title", width: 600, height: 400 },
+  { id: 13, src: "/7.jpg", title: "test title", width: 600, height: 400 },
+  { id: 14, src: "/2.jpg", title: "test title", width: 400, height: 300 },
+  { id: 15, src: "/3.jpg", title: "test title", width: 600, height: 400 },
+  { id: 16, src: "/4.jpg", title: "test title", width: 600, height: 400 },
+  { id: 17, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 18, src: "/6.jpg", title: "test title", width: 600, height: 400 },
+  { id: 19, src: "/1.jpg", title: "test title", width: 600, height: 400 },
+  { id: 20, src: "/2.jpg", title: "test title", width: 400, height: 300 },
+  { id: 21, src: "/3.jpg", title: "test title", width: 600, height: 400 },
+  { id: 22, src: "/4.jpg", title: "test title", width: 600, height: 400 },
+  { id: 24, src: "/6.jpg", title: "test title", width: 600, height: 400 },
+  { id: 25, src: "/7.jpg", title: "test title", width: 600, height: 400 },
+  { id: 26, src: "/1.jpg", title: "test title", width: 600, height: 400 },
+  { id: 23, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 99, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 27, src: "/2.jpg", title: "test title", width: 400, height: 300 },
+  { id: 28, src: "/3.jpg", title: "test title", width: 600, height: 400 },
+  { id: 29, src: "/4.jpg", title: "test title", width: 600, height: 400 },
+  { id: 30, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 31, src: "/6.jpg", title: "test title", width: 600, height: 400 },
+  { id: 32, src: "/7.jpg", title: "test title", width: 600, height: 400 },
+  { id: 33, src: "/1.jpg", title: "test title", width: 600, height: 400 },
+  { id: 34, src: "/2.jpg", title: "test title", width: 400, height: 300 },
+  { id: 35, src: "/3.jpg", title: "test title", width: 600, height: 400 },
+  { id: 36, src: "/4.jpg", title: "test title", width: 600, height: 400 },
+  { id: 37, src: "/5.jpg", title: "test title", width: 400, height: 300 },
+  { id: 38, src: "/6.jpg", title: "test title", width: 600, height: 400 },
+  { id: 39, src: "/1.jpg", title: "test title", width: 600, height: 400 },
   // Continue the same pattern for other parent images...
+];
+
+export const slidingImages = [
+  {
+    img1: "/1.jpg",
+    img2: "/2.jpg",
+    img3: "/3.jpg",
+  },
+  {
+    img1: "/4.jpg",
+    img2: "/5.jpg",
+    img3: "/6.jpg",
+  },
+  {
+    img1: "/7.jpg",
+    img2: "/1.jpg",
+    img3: "/2.jpg",
+  },
 ];

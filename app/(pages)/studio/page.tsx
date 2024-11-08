@@ -1,10 +1,10 @@
-import PriceColums from "@/app/(pages)/studio/sections/PriceColums";
+import Hero from "@/app/(pages)/studio/sections/Hero";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <PriceColums />
+      <Hero />
     </div>
   );
 };
