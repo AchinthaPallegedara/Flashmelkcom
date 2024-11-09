@@ -11,17 +11,17 @@ const Hero = () => {
   return (
     <section className="flex flex-col">
       <Navbar />
-      <div className="container flex items-center justify-between my-24">
-        <div className=" w-[50vw]">
-          <h1 className="text-8xl font-anton">
+      <div className="container flex items-center justify-between my-24 max-md:flex-col">
+        <div className=" w-[50vw] max-md:w-full">
+          <h1 className="text-8xl font-anton max-md:text-5xl">
             Transform Your Vision Into Reality.
           </h1>
         </div>
-        <div className="w-[28vw] flex flex-col">
+        <div className="w-[28vw] flex flex-col max-md:w-full max-md:mt-5">
           <p className="text-black text-xl font-medium ">
             A modern studio space designed for creators, artists, and innovators
           </p>
-          <div className="flex space-x-2 my-4">
+          <div className="flex space-x-2 my-4 max-md:mt-10">
             <Input
               type="email"
               placeholder="Enter your email"

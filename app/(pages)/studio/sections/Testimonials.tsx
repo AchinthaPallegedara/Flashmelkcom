@@ -9,18 +9,18 @@ const Testimonials = () => {
   const secondRow = reviews.slice(reviews.length / 2);
   return (
     <section className="my-20">
-      <div className="flex container justify-between items-center">
+      <div className="flex container justify-between items-center max-md:flex-col">
         <div>
-          <h2 className="text-7xl font-anton">Testimonials</h2>
+          <h2 className="text-7xl font-anton max-md:text-5xl">Testimonials</h2>
         </div>
         <div>
-          <p className="text-xl font-medium text-right w-[25vw]">
+          <p className="text-xl font-medium text-right w-[25vw] max-md:w-full max-md:text-center max-md:mt-5">
             What they said about us from the people we shared experiences with.
           </p>
-          <div className="flex justify-end">
+          <div className="flex justify-end max-md:justify-center">
             <Button
               variant="outline"
-              className="rounded-2xl font-semibold border-black my-3"
+              className="rounded-2xl font-semibold border-black my-3 hover:border-main-500"
             >
               View on google
               <Image

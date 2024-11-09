@@ -9,84 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  imageFeatures,
+  photoPackages,
+  videoFeatures,
+  videoPackages,
+} from "@/constants";
 
 const PriceColums = () => {
-  const imageFeatures = [
-    "10+ Background Colors",
-    "Spacious 35x45ft Space",
-    "Fully Air-Conditioned",
-    "Makeup/Dressing/Dining Area",
-    "Seating Area + Parking",
-    "02 x Godox AD600B Lights",
-    "02 x Parabolic 120L Softbox",
-    "01 x Strip Softbox 35x160cm",
-    "Large Reflector 5in1",
-    '55" 4K Tether Station + Cable',
-    "Parabolic 7-foot white Umbrella",
-    "Curved 160cm Eye Lighter",
-    "03 x White Props Boxes",
-    "Optical Gobo snoot light projector",
-  ];
-  const videoFeatures = [
-    '55" 4K Tether Station + Cable',
-    "Parabolic 7-foot white Umbrella",
-    "Curved 160cm Eye Lighter",
-    "03 x White Props Boxes",
-    "Optical Gobo snoot light projector",
-    "10+ Background Colors",
-    "Spacious 35x45ft Space",
-    "Fully Air-Conditioned",
-    "Makeup/Dressing/Dining Area",
-    "Seating Area + Parking",
-    "02 x Godox AD600B Lights",
-    "02 x Parabolic 120L Softbox",
-    "01 x Strip Softbox 35x160cm",
-    "Large Reflector 5in1",
-  ];
-
-  const photoPackages = [
-    {
-      name: "Basic Session",
-      price: "Rs 7,500",
-      duration: "2 HOURS",
-      includedFeatures: 8,
-    },
-    {
-      name: "Standard Session",
-      price: "Rs 14,500",
-      duration: "5 HOURS",
-      includedFeatures: imageFeatures.length,
-      popular: true,
-    },
-    {
-      name: "Professional Session",
-      price: "Rs 22,500",
-      duration: "8 HOURS",
-      includedFeatures: imageFeatures.length,
-    },
-  ];
-  const videoPackages = [
-    {
-      name: "Basic Session",
-      price: "Rs 10,500",
-      duration: "2 HOURS",
-      includedFeatures: 8,
-    },
-    {
-      name: "Standard Session",
-      price: "Rs 18,500",
-      duration: "5 HOURS",
-      includedFeatures: videoFeatures.length,
-      popular: true,
-    },
-    {
-      name: "Professional Session",
-      price: "Rs 28,500",
-      duration: "8 HOURS",
-      includedFeatures: videoFeatures.length,
-    },
-  ];
-
   return (
     <div className="max-w-6xl mx-auto ">
       <Tabs defaultValue="photos" className="">

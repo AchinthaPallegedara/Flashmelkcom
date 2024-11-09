@@ -10,7 +10,7 @@ type Props = {
 
 const ReviewCard = ({ reviewer, review, rating, role }: Props) => {
   return (
-    <div className="w-80 h-72 border-2 border-primary bg-white mx-2 p-5 flex flex-col justify-between">
+    <div className="w-80 h-72 border-2 border-primary bg-white mx-2 p-5 flex flex-col justify-between hover:border-main-500">
       <div>
         <div className="flex  justify-between items-center">
           <div>

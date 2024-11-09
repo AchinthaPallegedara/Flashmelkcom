@@ -34,14 +34,20 @@ export default function Faq() {
           style={{ y: titleY }}
           className="md:sticky md:top-24 h-fit"
         >
-          <h2 className="font-anton text-7xl md:text-6xl font-black ">
+          <h2 className="font-anton text-7xl md:text-6xl font-black max-md:text-5xl">
             FREQUENTLY
             <br />
             ASKED QUESTIONS
           </h2>
           <Button
-            size="lg"
-            className="rounded-3xl px-4 my-2 bg-main-500 text-black hover:text-white transition-all"
+            size="sm"
+            className="hidden md:flex rounded-3xl px-4 my-2 bg-main-500 text-black hover:text-white transition-all border border-primary"
+          >
+            Get Started <ArrowRight />
+          </Button>
+          <Button
+            size="default"
+            className="md:hidden rounded-3xl px-4 my-2 bg-main-500 text-black hover:text-white transition-all border border-primary"
           >
             Get Started <ArrowRight />
           </Button>
