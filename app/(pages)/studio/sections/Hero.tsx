@@ -1,4 +1,4 @@
-import Navbar from "@/components/header/Navbar";
+import Navbar from "@/components/headerAndFooter/Navbar";
 import ScrollCard from "@/components/ScrollCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

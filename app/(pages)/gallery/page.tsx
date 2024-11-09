@@ -1,8 +1,13 @@
 import MasonryGallery from "@/components/gallery/MasonryGallery";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/newTabs";
 
 import React from "react";
-import Navbar from "@/components/header/Navbar";
+import Navbar from "@/components/headerAndFooter/Navbar";
 import { Newimages } from "@/constants";
 // import { fashionImages, images } from "@/constants";
 
