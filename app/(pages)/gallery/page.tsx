@@ -9,6 +9,7 @@ import {
 import React from "react";
 import Navbar from "@/components/headerAndFooter/Navbar";
 import { Newimages } from "@/constants";
+import Footer from "@/components/headerAndFooter/Footer";
 // import { fashionImages, images } from "@/constants";
 
 const page = () => {
@@ -50,6 +51,7 @@ const page = () => {
         </Tabs>
       </div>
       <div className="w-full h-20"></div>
+      <Footer />
     </>
   );
 };

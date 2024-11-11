@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${anton.variable} ${poppins.variable}  antialiased`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );

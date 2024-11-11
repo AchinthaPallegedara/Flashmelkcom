@@ -101,15 +101,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full h-16  flex items-center justify-center border-t border-black bg-black/15 text-white max-md:h-24 ">
-          <p className="text-center">
+        <div className="w-full h-20  flex items-center justify-center border-t border-black bg-black/15 text-white max-md:h-24 ">
+          <p className="text-center text-white/60">
             Copyright © 2024 Flash Me Lk.
             <br className="md:hidden" /> Powered by DSLR Rent Lk.
             <br /> Designed & Developed by
             <Link href="https://claviq.com">
-              <span className=" font-bold mx-1 hover:text-orange-500">
-                Claviq
-              </span>
+              <span className="  mx-1 hover:text-orange-500">Claviq</span>
             </Link>
           </p>
         </div>
