@@ -1,10 +1,9 @@
 import BookingCalendar from "@/components/booking/booking-calendar";
 import Navbar from "@/components/headerAndFooter/Navbar";
 import SessionDetails from "@/components/SessionDetails";
-
 import React from "react";
 
-export default function Home() {
+const page = () => {
   return (
     <div className="mb-16 ">
       <Navbar />
@@ -14,4 +13,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default page;

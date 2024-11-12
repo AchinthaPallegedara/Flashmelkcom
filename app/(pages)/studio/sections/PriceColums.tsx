@@ -15,10 +15,11 @@ import {
   videoFeatures,
   videoPackages,
 } from "@/constants";
+import Link from "next/link";
 
 const PriceColums = () => {
   return (
-    <div className="max-w-6xl mx-auto ">
+    <div id="price" className="max-w-6xl mx-auto ">
       <Tabs defaultValue="photos" className="">
         <div className="flex w-full items-center justify-center">
           <TabsList className="w-48 ring-2 ring-primary rounded-3xl flex items-center justify-center my-10 space-x-2 bg-white ">
@@ -73,14 +74,16 @@ const PriceColums = () => {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button
-                    className={`w-full ${
-                      pkg.popular ? "hover:bg-main-500 hover:text-black" : ""
-                    }`}
-                    variant={pkg.popular ? "default" : "outline"}
-                  >
-                    Book Now
-                  </Button>
+                  <Link href={`/studio/${pkg.alt}`} className="w-full">
+                    <Button
+                      className={`w-full ${
+                        pkg.popular ? "hover:bg-main-500 hover:text-black" : ""
+                      }`}
+                      variant={pkg.popular ? "default" : "outline"}
+                    >
+                      Book Now
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}

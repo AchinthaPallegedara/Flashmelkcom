@@ -35,9 +35,9 @@ function Calendar({
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell:
-          "text-muted-foreground rounded-md w-14 max-md:w-12 font-normal text-[0.8rem] mb-6",
+          "text-muted-foreground rounded-md w-14 max-lg:w-10 max-md:w-12 font-normal text-[0.8rem] mb-6",
         row: "flex w-full mt-0",
-        cell: "h-14 w-14  max-md:size-12 text-center text-lg p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        cell: "h-14 w-14 max-lg:size-10 max-md:size-12 text-center text-lg p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: cn(
           buttonVariants({ variant: "ghost" }),
           "h-14 w-14 max-md:size-12 p-0 font-normal aria-selected:opacity-100 rounded-none md:text-md"

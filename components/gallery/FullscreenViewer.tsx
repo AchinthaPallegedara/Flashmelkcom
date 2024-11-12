@@ -11,9 +11,9 @@ import {
   X,
   ZoomIn,
   ZoomOut,
-  //   Copy,
   Maximize2,
   Grid,
+  Loader2,
 } from "lucide-react";
 
 interface ImageData {
@@ -42,11 +42,13 @@ export default function Component({
     y: 0,
   });
   const [, setIsFullscreen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
   const showNextImage = useCallback(() => {
     if (currentIndex < images.length - 1) {
+      setIsLoading(true);
       setCurrentIndex((prevIndex) => prevIndex + 1);
       resetZoom();
     }
@@ -54,6 +56,7 @@ export default function Component({
 
   const showPreviousImage = useCallback(() => {
     if (currentIndex > 0) {
+      setIsLoading(true);
       setCurrentIndex((prevIndex) => prevIndex - 1);
       resetZoom();
     }
@@ -102,16 +105,6 @@ export default function Component({
     }
   }, []);
 
-  //   const copyImageUrl = useCallback(() => {
-  //     navigator.clipboard
-  //       .writeText(images[currentIndex].src)
-  //       .then(() => {
-  //         // You could add a toast notification here
-  //         console.log("Image URL copied to clipboard");
-  //       })
-  //       .catch(console.error);
-  //   }, [images, currentIndex]);
-
   // Keyboard navigation
   useHotkeys("left", showPreviousImage);
   useHotkeys("right", showNextImage);
@@ -143,6 +136,23 @@ export default function Component({
     []
   );
 
+  // Loading animation variants
+  const loadingVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
     <div
       ref={containerRef}
@@ -150,14 +160,6 @@ export default function Component({
     >
       {/* Top Controls */}
       <div className="absolute top-4 right-4 flex items-center space-x-2 z-10">
-        {/* <motion.button
-          onClick={copyImageUrl}
-          className="p-2 text-white bg-gray-800/50 rounded-full hover:bg-gray-700/50"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <Copy size={20} />
-        </motion.button> */}
         <motion.button
           onClick={handleZoomIn}
           className="p-2 text-white bg-gray-800/50 rounded-full hover:bg-gray-700/50"
@@ -212,6 +214,30 @@ export default function Component({
             }}
             className="absolute w-full h-full flex items-center justify-center"
           >
+            {/* Loading Spinner */}
+            <AnimatePresence>
+              {isLoading && (
+                <motion.div
+                  variants={loadingVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-10"
+                >
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    <Loader2 className="w-8 h-8 text-white" />
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <Image
               ref={imageRef}
               src={images[currentIndex].src}
@@ -224,6 +250,7 @@ export default function Component({
                 transform: `scale(${zoomLevel}) translate(${panPosition.x}px, ${panPosition.y}px)`,
                 transition: isZoomed ? "none" : "transform 0.3s ease-out",
               }}
+              onLoadingComplete={() => setIsLoading(false)}
             />
           </motion.div>
         </AnimatePresence>
@@ -278,7 +305,10 @@ export default function Component({
             {images.map((image, index) => (
               <motion.button
                 key={image.id}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {
+                  setIsLoading(true);
+                  setCurrentIndex(index);
+                }}
                 className={`relative w-16 h-16 flex-shrink-0 rounded overflow-hidden ${
                   index === currentIndex ? "ring-2 ring-white" : ""
                 }`}

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Marquee } from "@/components/ui/marquee";
 import { slidingImages } from "@/constants";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -27,12 +28,14 @@ const Hero = () => {
               placeholder="Enter your email"
               className="rounded-3xl border-primary"
             />
-            <Button
-              className="rounded-3xl border-primary hover:bg-main-500"
-              variant="outline"
-            >
-              Start Booking <ArrowRight />
-            </Button>
+            <Link href="#price">
+              <Button
+                className="rounded-3xl border-primary hover:bg-main-500"
+                variant="outline"
+              >
+                Start Booking <ArrowRight />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

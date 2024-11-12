@@ -86,14 +86,95 @@ export const fashionImages = [
 export const Newimages = [
   {
     id: 1,
-    src: "/1.jpg",
+    src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35tBco7iNXCwhsJfNGKpMHk4DzaZ1Rc0begUVP",
     title: "test title",
     width: 600,
     height: 400,
     subImages: [
-      { id: 101, src: "/1.jpg", width: 300, height: 200 },
-      { id: 102, src: "/2.jpg", width: 300, height: 200 },
-      { id: 103, src: "/3.jpg", width: 300, height: 200 },
+      {
+        id: 101,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35N0Q06j2duOL37q1PSMorT2FhI84wx5JzRDUc",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 102,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35YiF7p1WDlz35UOqfgwHJsFIZBReSXxrYQhb9",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 103,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35MAGeio8dm019UCgMiJbLuZI6l2GFckQ8fsOX",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 104,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35tBco7iNXCwhsJfNGKpMHk4DzaZ1Rc0begUVP",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 105,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz351eoyUyumc8SplTiydEOGwogbVm3YCHJqxA0X",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 106,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35iEeMFgVwigNnFYHyOQBL4W8lR5jXqcJuMTUh",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 107,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35zZM8nUdSN64v87DxyJMnGoSbqiPcwVdp9FYC",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 108,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35fnNiQzqXNBcrMFJ3ZW9oIP4VsQq7RDwG1eu0",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 109,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35b0VUVCgB6qE1hnd3LDbOJRApgGaoylIKv7U8",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 110,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35iNJFhR7VwigNnFYHyOQBL4W8lR5jXqcJuMTU",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 111,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35mKW8rOTnLV8RuNUKS1EiXegYdDHzTlf3WIkb",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 112,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35yrGsiq8MnoJut38IBCWPdcapbNzD1Ggre5RK",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 113,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35px2p3R4fMoRiLQSGbjI7VqaUsPXWHDygx8vh",
+        width: 300,
+        height: 200,
+      },
+      {
+        id: 114,
+        src: "https://utfs.io/a/nxwx0c7wam/YtS7sDWDlz35q3VqTvxypQPU1Ya3kvAdFLg5bB4ljZh9CEHT",
+        width: 300,
+        height: 200,
+      },
     ],
   },
   {
@@ -358,12 +439,14 @@ export const videoFeatures = [
 export const photoPackages = [
   {
     name: "Basic Session",
+    alt: "basic",
     price: "Rs 7,500",
     duration: "2 HOURS",
     includedFeatures: 8,
   },
   {
     name: "Standard Session",
+    alt: "standard",
     price: "Rs 14,500",
     duration: "5 HOURS",
     includedFeatures: imageFeatures.length,
@@ -371,6 +454,7 @@ export const photoPackages = [
   },
   {
     name: "Professional Session",
+    alt: "professional",
     price: "Rs 22,500",
     duration: "8 HOURS",
     includedFeatures: imageFeatures.length,
