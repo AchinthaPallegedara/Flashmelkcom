@@ -27,58 +27,58 @@ export function TimeSlotSelector({
 }: TimeSlotSelectorProps) {
   const isTimeSlotAvailable = React.useCallback(
     (timeSlot: string) => {
-      const timeSlotDate = parseISO(
-        `${format(date, "yyyy-MM-dd")}T${timeSlot}`
-      );
-      const formattedDate = format(timeSlotDate, "yyyy-MM-dd");
+      const selectedDateStr = format(date, "yyyy-MM-dd");
+      const timeSlotDate = parseISO(`${selectedDateStr}T${timeSlot}`);
       const now = new Date();
 
-      // Disable past time slots for today
+      // 1. Disable past time slots for today
       if (isToday(date) && isBefore(timeSlotDate, now)) {
         return false;
       }
 
-      const holidayUnavailable = holidays.some((holiday) => {
-        if (holiday.date === formattedDate && holiday.type === "full-day") {
-          return true;
-        }
+      // 2. Check if the time slot falls within a holiday (full-day or time-slot specific)
+      const isHolidayUnavailable = holidays.some((holiday) => {
+        const holidayDateStr = holiday.date; // e.g., "2024-12-24"
 
-        if (holiday.date === formattedDate && holiday.type === "time-slot") {
-          const holidayStart = parseISO(`${holiday.date}T${holiday.startTime}`);
-          const holidayEnd = parseISO(`${holiday.date}T${holiday.endTime}`);
-          const timeSlotHour = timeSlotDate.getHours();
-          const holidayStartHour = holidayStart.getHours();
-          const holidayEndHour = holidayEnd.getHours();
+        if (holidayDateStr === selectedDateStr) {
+          if (holiday.type === "full-day") {
+            return true; // Disable for full-day holidays
+          }
 
-          return (
-            timeSlotHour >= holidayStartHour && timeSlotHour < holidayEndHour
+          // Parse the start and end times for time-slot-specific holidays
+          const holidayStart = parseISO(
+            `${holidayDateStr}T${holiday.start_time}`
           );
-        }
+          const holidayEnd = parseISO(`${holidayDateStr}T${holiday.end_time}`);
 
+          return timeSlotDate >= holidayStart && timeSlotDate < holidayEnd;
+        }
         return false;
       });
 
-      if (holidayUnavailable) {
+      if (isHolidayUnavailable) {
         return false;
       }
 
-      return !bookings.some((booking) => {
-        if (booking.date !== formattedDate) {
-          return false;
+      // 3. Check if the time slot overlaps with an existing booking
+      const isBookingUnavailable = bookings.some((booking) => {
+        const bookingDateStr = booking.date; // e.g., "2024-11-14"
+
+        if (bookingDateStr === selectedDateStr) {
+          // Parse the start and end times for bookings
+          const bookingStart = parseISO(
+            `${bookingDateStr}T${booking.start_time}`
+          );
+          const bookingEnd = parseISO(`${bookingDateStr}T${booking.end_time}`);
+
+          return timeSlotDate >= bookingStart && timeSlotDate < bookingEnd;
         }
-
-        const bookingStart = parseISO(`${booking.date}T${booking.startTime}`);
-        const bookingEnd = parseISO(`${booking.date}T${booking.endTime}`);
-        const timeSlotHour = timeSlotDate.getHours();
-        const bookingStartHour = bookingStart.getHours();
-        const bookingEndHour = bookingEnd.getHours();
-
-        return (
-          timeSlotHour >= bookingStartHour && timeSlotHour < bookingEndHour
-        );
+        return false;
       });
+
+      return !isBookingUnavailable; // Time slot is available only if no overlap is found
     },
-    [bookings, holidays, date]
+    [date, holidays, bookings]
   );
 
   const handleTimeSelect = (time: string) => {

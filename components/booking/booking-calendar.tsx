@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import * as React from "react";
 import axios from "axios";
 import { format, startOfDay, parseISO, addHours } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+
 import {
   Card,
   CardContent,
@@ -33,28 +36,36 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { CheckCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface Holiday {
   id: string;
   date: string;
   type: "full-day" | "time-slot";
-  startTime?: string;
-  endTime?: string;
-  description: string;
+  start_time?: string;
+  end_time?: string;
 }
 
 interface Booking {
   id: string;
   date: string;
-  startTime: string;
-  endTime: string;
+  start_time: string;
+  end_time: string;
   packageType: string;
+  status: string;
 }
 
 export type { Holiday, Booking };
 
 interface BookingCalendarProps {
-  packageType: "basic" | "standard" | "professional";
+  packageType:
+    | "I-basic"
+    | "I-standard"
+    | "I-professional"
+    | "V-basic"
+    | "V-standard"
+    | "V-professional";
   packageDuration: number;
 }
 
@@ -79,6 +90,8 @@ export default function BookingCalendar({
   const [allowOverlap, setAllowOverlap] = React.useState(false);
   const { toast } = useToast();
   const isMobile = useMediaQuery("(max-width: 640px)");
+  const [confirmedBooking, setConfirmedBooking] = React.useState<any>(null);
+  const router = useRouter();
 
   const fetchBookingsAndHolidays = React.useCallback(
     async (startDate: Date, endDate: Date) => {
@@ -136,26 +149,37 @@ export default function BookingCalendar({
     );
     const selectedEndTime = addHours(selectedStartTime, packageDuration);
 
-    return bookings.some((booking) => {
-      const bookingStartTime = parseISO(`${booking.date}T${booking.startTime}`);
-      const bookingEndTime = parseISO(`${booking.date}T${booking.endTime}`);
+    return bookings
+      .filter((booking) => booking.status === "disapproved")
+      .some((booking) => {
+        const bookingStartTime = parseISO(
+          `${booking.date}T${booking.start_time}`
+        );
+        const bookingEndTime = parseISO(`${booking.date}T${booking.end_time}`);
 
-      return (
-        (selectedStartTime >= bookingStartTime &&
-          selectedStartTime < bookingEndTime) ||
-        (selectedEndTime > bookingStartTime &&
-          selectedEndTime <= bookingEndTime) ||
-        (selectedStartTime <= bookingStartTime &&
-          selectedEndTime >= bookingEndTime)
-      );
-    });
+        return (
+          (selectedStartTime >= bookingStartTime &&
+            selectedStartTime < bookingEndTime) ||
+          (selectedEndTime > bookingStartTime &&
+            selectedEndTime <= bookingEndTime) ||
+          (selectedStartTime <= bookingStartTime &&
+            selectedEndTime >= bookingEndTime)
+        );
+      });
   }, [selectedTime, date, packageDuration, bookings]);
 
   const handleContinue = () => {
-    if (packageType !== "basic" && checkTimeSlotOverlap()) {
+    if (
+      packageType !== "I-basic" &&
+      packageType !== "V-basic" &&
+      checkTimeSlotOverlap()
+    ) {
       setAllowOverlap(true);
       setShowOverlapWarning(true);
-    } else if (packageType === "basic" && checkTimeSlotOverlap()) {
+    } else if (
+      (packageType === "I-basic" || packageType === "V-basic") &&
+      checkTimeSlotOverlap()
+    ) {
       setAllowOverlap(false);
       setShowOverlapWarning(true);
     } else {
@@ -187,16 +211,16 @@ export default function BookingCalendar({
       };
 
       await api.post("/bookings", bookingData);
-
+      localStorage.setItem("bookingData", JSON.stringify(bookingData)); // Store as JSON string in localStorage
       toast({
         title: "Success",
         description: `Your ${packageType} package has been booked successfully.`,
       });
-
+      setStep(3); // Move to thank you step
       setSelectedTime(undefined);
       await fetchBookingsAndHolidays(date, date);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       toast({
         title: "Error",
         description: "Failed to book appointment. Please try again.",
@@ -207,6 +231,90 @@ export default function BookingCalendar({
     }
   };
 
+  const renderThankYouStep = () => {
+    // Get booking data from localStorage
+    const bookingData = localStorage.getItem("bookingData")
+      ? JSON.parse(localStorage.getItem("bookingData")!)
+      : null;
+
+    if (!bookingData) {
+      // If no booking data is found, you can redirect or show an error
+      return <div>Booking data not found.</div>;
+    }
+
+    return (
+      <div className="space-y-6 py-4">
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <CheckCircle className="h-16 w-16 text-green-500" />
+          </div>
+          <h2 className="text-2xl font-bold text-green-700 mb-2">
+            Booking Submitted!
+          </h2>
+          <p className="text-gray-600">
+            Thank you for your booking. We&apos;ll send you a confirmation email
+            shortly.
+          </p>
+        </div>
+
+        <div className="bg-gray-50 p-6 rounded-lg space-y-4">
+          <h3 className="font-semibold text-lg border-b pb-2">
+            Booking Details
+          </h3>
+
+          <div className="flex flex-col gap-3">
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Date:</p>
+              <p className="font-medium">
+                {format(new Date(bookingData.date), "EEEE, MMMM do, yyyy")}
+              </p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Time:</p>
+              <p className="font-medium">
+                {format(
+                  parseISO(`2000-01-01T${bookingData.startTime}`),
+                  "h:mm a"
+                )}{" "}
+                -
+                {format(
+                  parseISO(`2000-01-01T${bookingData.endTime}`),
+                  "h:mm a"
+                )}
+              </p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Package:</p>
+              <p className="font-medium">{bookingData.packageType}</p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Name:</p>
+              <p className="font-medium">{bookingData.name}</p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Email:</p>
+              <p className="font-medium">{bookingData.email}</p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Phone:</p>
+              <p className="font-medium">{bookingData.phone}</p>
+            </div>
+            <div className="flex space-x-4">
+              <p className="text-gray-600">Status:</p>
+              <p className="font-medium capitalize">Pending Confirmation</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <p className="text-blue-700">
+            We&apos;ll review your booking and send you a confirmation email
+            soon. Please check your inbox for further instructions.
+          </p>
+        </div>
+      </div>
+    );
+  };
   const OverlapWarning = () => {
     const content = (
       <>
@@ -284,14 +392,16 @@ export default function BookingCalendar({
       <Card className="lg:px-5 md:py-5">
         <CardHeader>
           <CardTitle>
-            {step === 1
-              ? "Please select a date and time"
-              : "Fill your contact information"}
+            {step === 1 && "Please select a date and time"}
+            {step === 2 && "Fill your contact information"}
+            {step === 3 && "Booking Submitted"}
           </CardTitle>
           <CardDescription>
-            {step === 1
-              ? `Select a date and time slot to book an appointment for your ${packageType} package`
-              : "Please fill in your contact information to book a session"}
+            {step === 1 &&
+              `Select a date and time slot to book an appointment for your ${packageType} package`}
+            {step === 2 &&
+              "Please fill in your contact information to book a session"}
+            {step === 3 && "Your booking has been submitted successfully"}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -312,13 +422,15 @@ export default function BookingCalendar({
                 isLoading={isLoading}
               />
             </div>
-          ) : (
+          ) : step === 2 ? (
             <ContactForm
               date={date}
               selectedTime={selectedTime}
               packageDuration={packageDuration}
               onSubmit={handleBooking}
             />
+          ) : (
+            renderThankYouStep()
           )}
         </CardContent>
         <CardFooter className="flex justify-end">
@@ -330,7 +442,7 @@ export default function BookingCalendar({
             >
               {isLoading ? "Loading..." : "Continue"}
             </Button>
-          ) : (
+          ) : step === 2 ? (
             <div className="flex justify-between w-full">
               <Button
                 onClick={() => setStep(1)}
@@ -346,6 +458,15 @@ export default function BookingCalendar({
                 className="hover:bg-main-500 hover:text-black"
               >
                 {isLoading ? "Booking..." : "Book Appointment"}
+              </Button>
+            </div>
+          ) : (
+            <div className="flex justify-center gap-4 w-full">
+              <Button
+                onClick={() => router.push("/")}
+                className="hover:bg-main-500 hover:text-black"
+              >
+                Return Home
               </Button>
             </div>
           )}
