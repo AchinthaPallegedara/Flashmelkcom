@@ -283,19 +283,19 @@ export const Newimages = [
 
 export const slidingImages = [
   {
-    img1: "/1.jpg",
-    img2: "/2.jpg",
-    img3: "/3.jpg",
+    img1: "/1.webp",
+    img2: "/2.webp",
+    img3: "/3.webp",
   },
   {
-    img1: "/4.jpg",
-    img2: "/5.jpg",
-    img3: "/6.jpg",
+    img1: "/4.webp",
+    img2: "/5.webp",
+    img3: "/6.webp",
   },
   {
-    img1: "/7.jpg",
-    img2: "/1.jpg",
-    img3: "/2.jpg",
+    img1: "/7.webp",
+    img2: "/8.webp",
+    img3: "/9.webp",
   },
 ];
 
@@ -391,16 +391,16 @@ export const faqData = [
 ];
 
 export const FooterImage = [
-  "/1.jpg",
-  "/2.jpg",
-  "/3.jpg",
-  "/4.jpg",
-  "/5.jpg",
-  "/6.jpg",
-  "/7.jpg",
-  "/5.jpg",
-  "/6.jpg",
-  "/7.jpg",
+  "/1.webp",
+  "/2.webp",
+  "/3.webp",
+  "/4.webp",
+  "/5.webp",
+  "/6.webp",
+  "/7.webp",
+  "/5.webp",
+  "/6.webp",
+  "/7.webp",
 ];
 
 export const imageFeatures = [
@@ -439,14 +439,14 @@ export const videoFeatures = [
 export const photoPackages = [
   {
     name: "Basic Session",
-    alt: "basic",
+    alt: "i/basic",
     price: "Rs 7,500",
     duration: "2 HOURS",
     includedFeatures: 8,
   },
   {
     name: "Standard Session",
-    alt: "standard",
+    alt: "i/standard",
     price: "Rs 14,500",
     duration: "5 HOURS",
     includedFeatures: imageFeatures.length,
@@ -454,7 +454,7 @@ export const photoPackages = [
   },
   {
     name: "Professional Session",
-    alt: "professional",
+    alt: "i/professional",
     price: "Rs 22,500",
     duration: "8 HOURS",
     includedFeatures: imageFeatures.length,
@@ -463,12 +463,14 @@ export const photoPackages = [
 export const videoPackages = [
   {
     name: "Basic Session",
+    alt: "v/basic",
     price: "Rs 10,500",
     duration: "2 HOURS",
     includedFeatures: 8,
   },
   {
     name: "Standard Session",
+    alt: "v/standard",
     price: "Rs 18,500",
     duration: "5 HOURS",
     includedFeatures: videoFeatures.length,
@@ -476,6 +478,7 @@ export const videoPackages = [
   },
   {
     name: "Professional Session",
+    alt: "v/professional",
     price: "Rs 28,500",
     duration: "8 HOURS",
     includedFeatures: videoFeatures.length,

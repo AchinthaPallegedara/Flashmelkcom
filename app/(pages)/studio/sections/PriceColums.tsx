@@ -125,14 +125,16 @@ const PriceColums = () => {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button
-                    className={`w-full ${
-                      pkg.popular ? "hover:bg-main-500 hover:text-black" : ""
-                    }`}
-                    variant={pkg.popular ? "default" : "outline"}
-                  >
-                    Book Now
-                  </Button>
+                  <Link href={`/studio/${pkg.alt}`} className="w-full">
+                    <Button
+                      className={`w-full ${
+                        pkg.popular ? "hover:bg-main-500 hover:text-black" : ""
+                      }`}
+                      variant={pkg.popular ? "default" : "outline"}
+                    >
+                      Book Now
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}

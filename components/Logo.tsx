@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <div className="flex items-center justify-center space-x-2">
       <Image
-        src={"/FlashmelkIcon.svg"}
+        src={"/flashmelkIcon.svg"}
         alt="flashmelk_logo"
         width={40}
         height={40}
