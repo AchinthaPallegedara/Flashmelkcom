@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:3001/api/:path*",
+        destination: "https://flashmelk-dashboard.vercel.app/api/:path*",
       },
     ];
   },
