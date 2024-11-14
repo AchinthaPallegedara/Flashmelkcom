@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section className="flex flex-col">
       <Navbar />
-      <div className="container flex items-center justify-between my-24 max-md:flex-col">
+      <div className="container flex items-center justify-between my-24 max-md:my-8 max-md:flex-col">
         <div className=" w-[50vw] max-md:w-full">
           <h1 className="text-8xl font-anton max-md:text-5xl">
             Transform Your Vision Into Reality.

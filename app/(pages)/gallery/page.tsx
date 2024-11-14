@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/headerAndFooter/Navbar";
 import Footer from "@/components/headerAndFooter/Footer";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface SubImage {
   sub_image_url: string;
@@ -129,28 +130,38 @@ const Page = () => {
           )}
 
           {loading ? (
-            <div className="text-center py-8">Loading...</div>
+            <div className=" grid grid-cols-4 gap-4">
+              {Array(12)
+                .fill("")
+                .map((_, idx) => (
+                  <Skeleton
+                    key={idx}
+                    className="w-full h-96 bg-slate-100 rounded-none"
+                  />
+                ))}
+            </div>
           ) : (
-            <TabsContent value="LATEST">
-              <MasonryGallery images={images} />
-            </TabsContent>
+            <>
+              <TabsContent value="LATEST">
+                <MasonryGallery images={images} />
+              </TabsContent>
+              <TabsContent value="FASHION">
+                <MasonryGallery images={images} />
+              </TabsContent>
+              <TabsContent value="COMMERCIAL">
+                <MasonryGallery images={images} />
+              </TabsContent>
+              <TabsContent value="EDITORIAL">
+                <MasonryGallery images={images} />
+              </TabsContent>
+              <TabsContent value="BEAUTY">
+                <MasonryGallery images={images} />
+              </TabsContent>
+              <TabsContent value="CORPORATE_PROFILES">
+                <MasonryGallery images={images} />
+              </TabsContent>
+            </>
           )}
-
-          <TabsContent value="FASHION">
-            <MasonryGallery images={images} />
-          </TabsContent>
-          <TabsContent value="COMMERCIAL">
-            <MasonryGallery images={images} />
-          </TabsContent>
-          <TabsContent value="EDITORIAL">
-            <MasonryGallery images={images} />
-          </TabsContent>
-          <TabsContent value="BEAUTY">
-            <MasonryGallery images={images} />
-          </TabsContent>
-          <TabsContent value="CORPORATE_PROFILES">
-            <MasonryGallery images={images} />
-          </TabsContent>
         </Tabs>
       </div>
       <div className="w-full h-20"></div>

@@ -13,8 +13,8 @@ const ScrollCard = ({ img1, img2, img3 }: ScrollCardProps) => {
       <Image
         src={img1}
         alt="1"
-        width={300}
-        height={500}
+        width={256}
+        height={384}
         className="w-64 h-96 mx-1.5 object-cover"
       />
       <div className="flex flex-col space-y-3 mx-1.5">
