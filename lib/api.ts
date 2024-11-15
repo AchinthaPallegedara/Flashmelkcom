@@ -18,9 +18,9 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
-      console.error("API Error:", error.response.data);
+      console.log("API Error:", error.response.data);
     } else if (error.request) {
-      console.error("Network Error:", error.message);
+      console.log("Network Error:", error.message);
     }
     return Promise.reject(error);
   }
@@ -32,7 +32,7 @@ export const bookingService = {
       const { data } = await api.get(`/bookings?date=${date}`);
       return data;
     } catch (error) {
-      console.error("Error fetching bookings:", error);
+      console.log("Error fetching bookings:", error);
       throw error;
     }
   },
@@ -47,7 +47,7 @@ export const bookingService = {
       const { data } = await api.post("/bookings", bookingData);
       return data;
     } catch (error) {
-      console.error("Error creating booking:", error);
+      console.log("Error creating booking:", error);
       throw error;
     }
   },

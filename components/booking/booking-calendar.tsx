@@ -112,7 +112,7 @@ export default function BookingCalendar({
         setBookings(bookingsResponse.data);
         setHolidays(holidaysResponse.data);
       } catch (error) {
-        console.error(error);
+        console.log(error);
         toast({
           title: "Error",
           description: "Failed to fetch calendar data. Please try again.",

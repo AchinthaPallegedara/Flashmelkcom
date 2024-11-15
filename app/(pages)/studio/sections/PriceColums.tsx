@@ -9,12 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  imageFeatures,
-  photoPackages,
-  videoFeatures,
-  videoPackages,
-} from "@/constants";
+import { photoPackages, videoPackages } from "@/constants";
 import Link from "next/link";
 
 const PriceColums = () => {
@@ -63,14 +58,12 @@ const PriceColums = () => {
                 <CardContent>
                   <div className="text-4xl font-bold mb-6">{pkg.price}</div>
                   <ul className="space-y-2">
-                    {imageFeatures
-                      .slice(0, pkg.includedFeatures)
-                      .map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-primary" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
+                    {pkg.includedFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
                 <CardFooter>
@@ -114,14 +107,12 @@ const PriceColums = () => {
                 <CardContent>
                   <div className="text-4xl font-bold mb-6">{pkg.price}</div>
                   <ul className="space-y-2">
-                    {videoFeatures
-                      .slice(0, pkg.includedFeatures)
-                      .map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-primary" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
+                    {pkg.includedFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
                 <CardFooter>

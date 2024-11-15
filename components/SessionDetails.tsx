@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Check, Clock2 } from "lucide-react";
-import { imageFeatures, photoPackages, videoPackages } from "@/constants";
+import { photoPackages, videoPackages } from "@/constants";
 
 type Props = {
   pkgIndex: number;
@@ -37,9 +37,8 @@ const SessionDetails = ({ pkgIndex, pkgType }: Props) => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {imageFeatures
-                    .slice(0, pkg.includedFeatures)
-                    .map((feature, i) => (
+                  {Array.isArray(pkg.includedFeatures) &&
+                    pkg.includedFeatures.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-primary" />
                         <span className="text-sm">{feature}</span>

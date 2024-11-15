@@ -1,5 +1,5 @@
 "use client";
-
+//correct
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import FullscreenViewer from "./FullscreenViewer";
@@ -18,7 +18,7 @@ interface MasonryGalleryProps {
   images: ImageData[];
 }
 
-export default function MasonryGallery({ images }: MasonryGalleryProps) {
+export default function MasonryGalleryDesktop({ images }: MasonryGalleryProps) {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [fullscreenParentIndex, setFullscreenParentIndex] = useState<
@@ -66,48 +66,73 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
     setFullscreenParentIndex(null);
   };
 
+  // Calculate rows based on image dimensions
+  const calculateRows = () => {
+    const rows: ImageData[][] = [[], [], [], []]; // 4 rows by default
+    images.forEach((image, index) => {
+      const rowIndex = index % rows.length;
+      rows[rowIndex].push(image);
+    });
+    return rows;
+  };
+
+  const rows = calculateRows();
+
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-        {images.map((image, index) => (
-          <motion.div
-            key={image.id}
-            ref={(el) => {
-              observerRefs.current[index] = el;
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={visibleItems.has(index) ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.5,
-              delay: (index % 3) * 0.1,
-              ease: "easeOut",
-            }}
-            className="break-inside-avoid"
-          >
-            <div
-              className="relative group overflow-hidden bg-gray-100 cursor-pointer"
-              onClick={() => openFullscreen(index)}
-            >
-              <Image
-                src={image.src}
-                alt={`Gallery image ${image.id}`}
-                width={image.width}
-                height={image.height}
-                className={`w-full h-auto transform transition-transform duration-300 group-hover:scale-105 ${
-                  loadedImages.has(index) ? "opacity-100" : "opacity-0"
-                }`}
-                onLoad={() => handleImageLoad(index)}
-              />
-              {image.title && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-lg font-semibold">
-                    {image.title}
-                  </span>
-                </div>
-              )}
+      <div className="pb-4">
+        <div className="md:inline-flex max-md:flex-col space-x-4 min-w-full">
+          {rows.map((row, rowIndex) => (
+            <div key={rowIndex} className="flex flex-col space-y-4">
+              {row.map((image, index) => {
+                const globalIndex = rowIndex + index * rows.length;
+                return (
+                  <motion.div
+                    key={image.id}
+                    ref={(el) => {
+                      observerRefs.current[globalIndex] = el;
+                    }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={
+                      visibleItems.has(globalIndex) ? { opacity: 1, x: 0 } : {}
+                    }
+                    transition={{
+                      duration: 0.5,
+                      delay: (globalIndex % 3) * 0.1,
+                      ease: "easeOut",
+                    }}
+                    className="w-full"
+                  >
+                    <div
+                      className="relative group overflow-hidden bg-gray-100 cursor-pointer"
+                      onClick={() => openFullscreen(globalIndex)}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={`Gallery image ${image.id}`}
+                        width={image.width}
+                        height={image.height}
+                        className={`w-full h-auto transform transition-transform duration-300 group-hover:scale-105 ${
+                          loadedImages.has(globalIndex)
+                            ? "opacity-100"
+                            : "opacity-0"
+                        }`}
+                        onLoad={() => handleImageLoad(globalIndex)}
+                      />
+                      {image.title && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-white text-lg font-semibold">
+                            {image.title}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {fullscreenParentIndex !== null && (

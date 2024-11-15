@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import MasonryGallery from "@/components/gallery/MasonryGallery";
+
 import {
   Tabs,
   TabsContent,
@@ -11,6 +11,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "@/components/headerAndFooter/Navbar";
 import Footer from "@/components/headerAndFooter/Footer";
 import { Skeleton } from "@/components/ui/skeleton";
+import MasonryGalleryDesktop from "@/components/gallery/MasonryGallery";
+import MasonryGalleryMobile from "@/components/gallery/MasonryGalleryMobile";
 
 interface SubImage {
   sub_image_url: string;
@@ -22,11 +24,28 @@ interface GalleryImage {
   title: string;
   sub_images: SubImage[];
 }
+// Hook to detect media query
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = React.useState(false);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia(query);
+    setMatches(mediaQuery.matches);
+
+    const handler = () => setMatches(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handler);
+
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [query]);
+
+  return matches;
+}
 
 const Page = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const fetchGalleryImages = async (
     category: GalleryCategory | null = null
@@ -60,7 +79,6 @@ const Page = () => {
       }));
 
       setImages(transformedData);
-      console.log(transformedData);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -143,22 +161,46 @@ const Page = () => {
           ) : (
             <>
               <TabsContent value="LATEST">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
+                )}
               </TabsContent>
               <TabsContent value="FASHION">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryDesktop images={images} />
+                ) : (
+                  <MasonryGalleryMobile images={images} />
+                )}
               </TabsContent>
               <TabsContent value="COMMERCIAL">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryDesktop images={images} />
+                ) : (
+                  <MasonryGalleryMobile images={images} />
+                )}
               </TabsContent>
               <TabsContent value="EDITORIAL">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryDesktop images={images} />
+                ) : (
+                  <MasonryGalleryMobile images={images} />
+                )}
               </TabsContent>
               <TabsContent value="BEAUTY">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryDesktop images={images} />
+                ) : (
+                  <MasonryGalleryMobile images={images} />
+                )}
               </TabsContent>
               <TabsContent value="CORPORATE_PROFILES">
-                <MasonryGallery images={images} />
+                {isMobile ? (
+                  <MasonryGalleryDesktop images={images} />
+                ) : (
+                  <MasonryGalleryMobile images={images} />
+                )}
               </TabsContent>
             </>
           )}

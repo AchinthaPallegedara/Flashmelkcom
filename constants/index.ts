@@ -130,7 +130,7 @@ export const FooterImage = [
   "/7.webp",
 ];
 
-export const imageFeatures = [
+export const imageFeaturesStanded = [
   "10+ Background Colors",
   "Spacious 35x45ft Space",
   "Fully Air-Conditioned",
@@ -146,7 +146,17 @@ export const imageFeatures = [
   "03 x White Props Boxes",
   "Optical Gobo snoot light projector",
 ];
-export const videoFeatures = [
+export const imageFeaturesBasic = [
+  "10+ Background Colors",
+  "Spacious 35x45ft Space",
+  "Fully Air-Conditioned",
+  "Makeup/Dressing/Dining Area",
+  "Seating Area + Parking",
+  "02 x Godox AD600B Lights",
+  "02 x Parabolic 120L Softbox",
+  "01 x Strip Softbox 35x160cm",
+];
+export const videoFeaturesBasic = [
   '55" 4K Tether Station + Cable',
   "Parabolic 7-foot white Umbrella",
   "Curved 160cm Eye Lighter",
@@ -169,14 +179,14 @@ export const photoPackages = [
     alt: "i/basic",
     price: "Rs 7,500",
     duration: "2 HOURS",
-    includedFeatures: 8,
+    includedFeatures: imageFeaturesBasic,
   },
   {
     name: "Standard Session",
     alt: "i/standard",
     price: "Rs 14,500",
     duration: "5 HOURS",
-    includedFeatures: imageFeatures.length,
+    includedFeatures: imageFeaturesStanded,
     popular: true,
   },
   {
@@ -184,7 +194,7 @@ export const photoPackages = [
     alt: "i/professional",
     price: "Rs 22,500",
     duration: "8 HOURS",
-    includedFeatures: imageFeatures.length,
+    includedFeatures: imageFeaturesStanded,
   },
 ];
 export const videoPackages = [
@@ -193,14 +203,14 @@ export const videoPackages = [
     alt: "v/basic",
     price: "Rs 10,500",
     duration: "2 HOURS",
-    includedFeatures: 8,
+    includedFeatures: videoFeaturesBasic,
   },
   {
     name: "Standard Session",
     alt: "v/standard",
     price: "Rs 18,500",
     duration: "5 HOURS",
-    includedFeatures: videoFeatures.length,
+    includedFeatures: videoFeaturesBasic,
     popular: true,
   },
   {
@@ -208,6 +218,6 @@ export const videoPackages = [
     alt: "v/professional",
     price: "Rs 28,500",
     duration: "8 HOURS",
-    includedFeatures: videoFeatures.length,
+    includedFeatures: videoFeaturesBasic,
   },
 ];
