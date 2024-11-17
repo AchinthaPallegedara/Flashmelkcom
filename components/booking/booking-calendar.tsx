@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import * as React from "react";
 import axios from "axios";
 import { format, startOfDay, parseISO, addHours } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useRouter } from "next/navigation";
+import { CheckCircle, Phone } from "lucide-react";
 
 import {
   Card,
@@ -35,9 +36,7 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/ui/drawer";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { CheckCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Holiday {
   id: string;
@@ -55,8 +54,6 @@ interface Booking {
   packageType: string;
   status: string;
 }
-
-export type { Holiday, Booking };
 
 interface BookingCalendarProps {
   packageType:
@@ -87,10 +84,8 @@ export default function BookingCalendar({
   const [isLoading, setIsLoading] = React.useState(false);
   const [holidays, setHolidays] = React.useState<Holiday[]>([]);
   const [showOverlapWarning, setShowOverlapWarning] = React.useState(false);
-  const [allowOverlap, setAllowOverlap] = React.useState(false);
   const { toast } = useToast();
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const [confirmedBooking, setConfirmedBooking] = React.useState<any>(null);
   const router = useRouter();
 
   const fetchBookingsAndHolidays = React.useCallback(
@@ -112,7 +107,7 @@ export default function BookingCalendar({
         setBookings(bookingsResponse.data);
         setHolidays(holidaysResponse.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         toast({
           title: "Error",
           description: "Failed to fetch calendar data. Please try again.",
@@ -149,38 +144,25 @@ export default function BookingCalendar({
     );
     const selectedEndTime = addHours(selectedStartTime, packageDuration);
 
-    return bookings
-      .filter((booking) => booking.status === "disapproved")
-      .some((booking) => {
-        const bookingStartTime = parseISO(
-          `${booking.date}T${booking.start_time}`
-        );
-        const bookingEndTime = parseISO(`${booking.date}T${booking.end_time}`);
+    return bookings.some((booking) => {
+      const bookingStartTime = parseISO(
+        `${booking.date}T${booking.start_time}`
+      );
+      const bookingEndTime = parseISO(`${booking.date}T${booking.end_time}`);
 
-        return (
-          (selectedStartTime >= bookingStartTime &&
-            selectedStartTime < bookingEndTime) ||
-          (selectedEndTime > bookingStartTime &&
-            selectedEndTime <= bookingEndTime) ||
-          (selectedStartTime <= bookingStartTime &&
-            selectedEndTime >= bookingEndTime)
-        );
-      });
+      return (
+        (selectedStartTime >= bookingStartTime &&
+          selectedStartTime < bookingEndTime) ||
+        (selectedEndTime > bookingStartTime &&
+          selectedEndTime <= bookingEndTime) ||
+        (selectedStartTime <= bookingStartTime &&
+          selectedEndTime >= bookingEndTime)
+      );
+    });
   }, [selectedTime, date, packageDuration, bookings]);
 
   const handleContinue = () => {
-    if (
-      packageType !== "I-basic" &&
-      packageType !== "V-basic" &&
-      checkTimeSlotOverlap()
-    ) {
-      setAllowOverlap(true);
-      setShowOverlapWarning(true);
-    } else if (
-      (packageType === "I-basic" || packageType === "V-basic") &&
-      checkTimeSlotOverlap()
-    ) {
-      setAllowOverlap(false);
+    if (checkTimeSlotOverlap()) {
       setShowOverlapWarning(true);
     } else {
       setStep(2);
@@ -207,20 +189,19 @@ export default function BookingCalendar({
         startTime: selectedTime,
         endTime,
         packageType,
-        overlap: checkTimeSlotOverlap(),
       };
 
       await api.post("/bookings", bookingData);
-      localStorage.setItem("bookingData", JSON.stringify(bookingData)); // Store as JSON string in localStorage
+      localStorage.setItem("bookingData", JSON.stringify(bookingData));
       toast({
         title: "Success",
         description: `Your ${packageType} package has been booked successfully.`,
       });
-      setStep(3); // Move to thank you step
+      setStep(3);
       setSelectedTime(undefined);
       await fetchBookingsAndHolidays(date, date);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast({
         title: "Error",
         description: "Failed to book appointment. Please try again.",
@@ -232,13 +213,11 @@ export default function BookingCalendar({
   };
 
   const renderThankYouStep = () => {
-    // Get booking data from localStorage
     const bookingData = localStorage.getItem("bookingData")
       ? JSON.parse(localStorage.getItem("bookingData")!)
       : null;
 
     if (!bookingData) {
-      // If no booking data is found, you can redirect or show an error
       return <div>Booking data not found.</div>;
     }
 
@@ -315,37 +294,8 @@ export default function BookingCalendar({
       </div>
     );
   };
-  const OverlapWarning = () => {
-    const content = (
-      <>
-        <DialogHeader>
-          <DialogTitle>Time Slot Overlap</DialogTitle>
-          <DialogDescription>
-            {allowOverlap
-              ? "The selected time slot overlaps with an existing booking. We will try to adjust other bookings to accommodate your request."
-              : "The selected time slot overlaps with an existing booking. Please select a different time slot."}
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <Button
-            variant="outline"
-            onClick={() => setShowOverlapWarning(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            className={`${allowOverlap ? "" : "hidden"}`}
-            onClick={() => {
-              setShowOverlapWarning(false);
-              setStep(2);
-            }}
-          >
-            Continue Anyway
-          </Button>
-        </DialogFooter>
-      </>
-    );
 
+  const OverlapWarning = () => {
     if (isMobile) {
       return (
         <Drawer open={showOverlapWarning} onOpenChange={setShowOverlapWarning}>
@@ -353,27 +303,22 @@ export default function BookingCalendar({
             <DrawerHeader>
               <DrawerTitle>Time Slot Overlap</DrawerTitle>
               <DrawerDescription>
-                {allowOverlap
-                  ? "The selected time slot overlaps with an existing booking. We will try to adjust other bookings to accommodate your request."
-                  : "The selected time slot overlaps with an existing booking. Please select a different time slot."}
+                The selected time slot overlaps with an existing booking. Please
+                select a different time slot or call us for assistance.
               </DrawerDescription>
             </DrawerHeader>
-            <DrawerFooter>
+            <DrawerFooter className="mb-10">
               <Button
                 variant="outline"
                 onClick={() => setShowOverlapWarning(false)}
               >
-                Cancel
+                Select Another Time
               </Button>
-              <Button
-                className={`${allowOverlap ? "" : "hidden"}`}
-                onClick={() => {
-                  setShowOverlapWarning(false);
-                  setStep(2);
-                }}
-              >
-                Continue Anyway
-              </Button>
+              <Link href={"#"}>
+                <Button>
+                  <Phone className="mr-2" /> Call Now
+                </Button>
+              </Link>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
@@ -382,7 +327,28 @@ export default function BookingCalendar({
 
     return (
       <Dialog open={showOverlapWarning} onOpenChange={setShowOverlapWarning}>
-        <DialogContent>{content}</DialogContent>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Time Slot Overlap</DialogTitle>
+            <DialogDescription>
+              The selected time slot overlaps with an existing booking. Please
+              select a different time slot or call us for assistance.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setShowOverlapWarning(false)}
+            >
+              Select Another Time
+            </Button>
+            <Link href={"#"}>
+              <Button>
+                <Phone className="mr-2" /> Call Now
+              </Button>
+            </Link>
+          </DialogFooter>
+        </DialogContent>
       </Dialog>
     );
   };

@@ -117,26 +117,82 @@ const Page = () => {
           onValueChange={handleTabChange}
         >
           <div className="flex mx-0 justify-center items-center mt-8 mb-5">
-            <TabsList className="hidden md:flex bg-transparent space-x-10">
-              <TabsTrigger value="LATEST">LATEST</TabsTrigger>
-              <TabsTrigger value="FASHION">FASHION</TabsTrigger>
-              <TabsTrigger value="COMMERCIAL">COMMERCIAL</TabsTrigger>
-              <TabsTrigger value="EDITORIAL">EDITORIAL</TabsTrigger>
-              <TabsTrigger value="BEAUTY">BEAUTY</TabsTrigger>
-              <TabsTrigger value="CORPORATE_PROFILES">
+            <TabsList className="hidden md:flex bg-transparent space-x-8 tracking-wider text-zinc-500 ">
+              <TabsTrigger
+                value="LATEST"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all"
+              >
+                LATEST
+              </TabsTrigger>
+              <TabsTrigger
+                value="FASHION"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all"
+              >
+                FASHION
+              </TabsTrigger>
+              <TabsTrigger
+                value="COMMERCIAL"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all "
+              >
+                COMMERCIAL
+              </TabsTrigger>
+              <TabsTrigger
+                value="EDITORIAL"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all"
+              >
+                EDITORIAL
+              </TabsTrigger>
+              <TabsTrigger
+                value="BEAUTY"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all"
+              >
+                BEAUTY
+              </TabsTrigger>
+              <TabsTrigger
+                value="CORPORATE_PROFILES"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all"
+              >
                 CORPORATE PROFILES
               </TabsTrigger>
             </TabsList>
-            <TabsList className="md:hidden bg-transparent flex flex-col">
+            <TabsList className="md:hidden bg-transparent flex flex-col space-y-[-8px] tracking-wider text-zinc-500 ">
               <div>
-                <TabsTrigger value="LATEST">LATEST</TabsTrigger>
-                <TabsTrigger value="FASHION">FASHION</TabsTrigger>
-                <TabsTrigger value="COMMERCIAL">COMMERCIAL</TabsTrigger>
+                <TabsTrigger
+                  value="LATEST"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
+                  LATEST
+                </TabsTrigger>
+                <TabsTrigger
+                  value="FASHION"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
+                  FASHION
+                </TabsTrigger>
+                <TabsTrigger
+                  value="COMMERCIAL"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
+                  COMMERCIAL
+                </TabsTrigger>
+                <TabsTrigger
+                  value="EDITORIAL"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
+                  EDITORIAL
+                </TabsTrigger>
               </div>
               <div>
-                <TabsTrigger value="EDITORIAL">EDITORIAL</TabsTrigger>
-                <TabsTrigger value="BEAUTY">BEAUTY</TabsTrigger>
-                <TabsTrigger value="CORPORATE_PROFILES">
+                <TabsTrigger
+                  value="BEAUTY"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
+                  BEAUTY
+                </TabsTrigger>
+                <TabsTrigger
+                  value="CORPORATE_PROFILES"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                >
                   CORPORATE PROFILES
                 </TabsTrigger>
               </div>

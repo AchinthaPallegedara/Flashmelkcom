@@ -89,14 +89,18 @@ const Footer = () => {
             <div className="max-md:my-10">
               <h4 className="text-2xl text-white font-semibold">Contacts</h4>
               <div className="w-10 h-0.5 bg-main-500 mb-10" />
-              <p className="flex items-center text-white">
-                <PhoneCall className="mr-2 my-2 size-5" />
-                +94 77 123 4567
-              </p>
-              <p className="flex items-center text-white">
-                <Mail className="mr-2 my-2 size-5" />
-                info@flashmelk.com
-              </p>
+              <Link href={"tel: +94777201502"}>
+                <p className="flex items-center text-white">
+                  <PhoneCall className="mr-2 my-2 size-5" />
+                  +94 77 720 1502
+                </p>
+              </Link>
+              <Link href={"mailto:info@flashmelk.com"}>
+                <p className="flex items-center text-white">
+                  <Mail className="mr-2 my-2 size-5" />
+                  info@flashmelk.com
+                </p>
+              </Link>
             </div>
           </div>
         </div>
@@ -106,8 +110,12 @@ const Footer = () => {
             Copyright © 2024 Flash Me Lk.
             <br className="md:hidden" /> Powered by DSLR Rent Lk.
             <br /> Designed & Developed by
-            <Link href="https://claviq.com">
-              <span className="  mx-1 hover:text-orange-500">Claviq</span>
+            <Link
+              href="https://claviq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="mx-1 hover:text-orange-500">Claviq</span>
             </Link>
           </p>
         </div>

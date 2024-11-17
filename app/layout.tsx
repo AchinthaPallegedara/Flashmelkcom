@@ -16,8 +16,18 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Flashme",
+  title: "Flashmelk",
   description: "",
+  icons: {
+    icon: "/flashmelkIcon.svg",
+  },
+  metadataBase: new URL("https://www.flashmelk.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    images: "/opengraph-image.png",
+  },
 };
 
 export default function RootLayout({
