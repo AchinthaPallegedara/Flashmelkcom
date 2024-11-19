@@ -38,7 +38,7 @@ import {
 } from "@/components/ui/drawer";
 import Link from "next/link";
 
-interface Holiday {
+export interface Holiday {
   id: string;
   date: string;
   type: "full-day" | "half-day";
@@ -46,7 +46,7 @@ interface Holiday {
   end_time?: string;
 }
 
-interface Booking {
+export interface Booking {
   id: string;
   date: string;
   start_time: string;
