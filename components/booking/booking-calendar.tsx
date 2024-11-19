@@ -41,7 +41,7 @@ import Link from "next/link";
 interface Holiday {
   id: string;
   date: string;
-  type: "full-day" | "time-slot";
+  type: "full-day" | "half-day";
   start_time?: string;
   end_time?: string;
 }
@@ -429,7 +429,7 @@ export default function BookingCalendar({
           ) : (
             <div className="flex justify-center gap-4 w-full">
               <Button
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/studio")}
                 className="hover:bg-main-500 hover:text-black"
               >
                 Return Home

@@ -1,7 +1,14 @@
 import { Calendar } from "@/components/ui/calendar";
 import { addDays, isBefore, isAfter, startOfDay, isSameDay } from "date-fns";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Holiday } from "./booking-calendar";
+
+interface Holiday {
+  id: string;
+  date: string;
+  type: "full-day" | "half-day";
+  start_time?: string;
+  end_time?: string;
+}
 
 interface DateSelectorProps {
   date: Date;
