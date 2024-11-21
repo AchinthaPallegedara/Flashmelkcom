@@ -221,3 +221,14 @@ export const videoPackages = [
     includedFeatures: videoFeaturesBasic,
   },
 ];
+
+export const menuItems = [
+  { title: "Gallery", href: "/gallery" },
+  { title: "Studio", href: "/studio" },
+  { title: "Portfolio", href: "/portfolio" },
+  { title: "Sessions", href: "/sessions" },
+  { title: "Rent", href: "/rent" },
+  { title: "About", href: "/about" },
+  { title: "Blog", href: "/blog" },
+  { title: "Contact", href: "/contact" },
+];

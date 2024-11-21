@@ -28,6 +28,8 @@ const config: Config = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "ken-burns": "ken-burns 20s ease-in-out infinite",
+        "animate-pan-360": "pan-360 30s linear infinite",
       },
       keyframes: {
         marquee: {
@@ -60,6 +62,19 @@ const config: Config = {
           },
           to: {
             height: "0",
+          },
+        },
+        "ken-burns": {
+          "0%": { transform: "scale(1.0) translate(0%, 0%)" },
+          "50%": { transform: "scale(1.2) translate(-1%, -1%)" },
+          "100%": { transform: "scale(1.0) translate(0%, 0%)" },
+        },
+        "pan-360": {
+          "0%": {
+            backgroundPosition: "0% 50%",
+          },
+          "100%": {
+            backgroundPosition: "100% 50%",
           },
         },
       },
