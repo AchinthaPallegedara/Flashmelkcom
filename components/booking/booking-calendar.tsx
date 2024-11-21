@@ -315,7 +315,7 @@ export default function BookingCalendar({
                 Select Another Time
               </Button>
               <Link href={"#"}>
-                <Button>
+                <Button className="w-full">
                   <Phone className="mr-2" /> Call Now
                 </Button>
               </Link>
