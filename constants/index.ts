@@ -232,3 +232,56 @@ export const menuItems = [
   { title: "Blog", href: "/blog" },
   { title: "Contact", href: "/contact" },
 ];
+
+export const sessions = [
+  {
+    link: "#",
+    title: "Individual - Quick Session",
+    description:
+      "Ideal for professionals in need of high quality headshots urgently.",
+    price: "10 000.00",
+    duration: "30 min",
+    softCopies: 5,
+    imgLink: "/1.webp",
+  },
+  {
+    link: "#",
+    title: "Individual - Quick Session",
+    description:
+      "Ideal for professionals in need of high quality headshots urgently.",
+    price: "10 000.00",
+    duration: "30 min",
+    softCopies: 5,
+    imgLink: "/2.webp",
+  },
+  {
+    link: "#",
+    title: "Individual - Quick Session",
+    description:
+      "Ideal for professionals in need of high quality headshots urgently.",
+    price: "10 000.00",
+    duration: "30 min",
+    softCopies: 5,
+    imgLink: "/8.webp",
+  },
+  {
+    link: "#",
+    title: "Individual - Quick Session",
+    description:
+      "Ideal for professionals in need of high quality headshots urgently.",
+    price: "10 000.00",
+    duration: "30 min",
+    softCopies: 5,
+    imgLink: "/7.webp",
+  },
+  {
+    link: "#",
+    title: "Individual - Quick Session",
+    description:
+      "Ideal for professionals in need of high quality headshots urgently.",
+    price: "10 000.00",
+    duration: "30 min",
+    softCopies: 5,
+    imgLink: "/9.webp",
+  },
+];
