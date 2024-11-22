@@ -52,6 +52,9 @@ export default function SessionDetails({ pkgIndex, pkgType }: Props) {
           <CardDescription className="flex items-center font-semibold">
             <Clock2 className="mr-2 size-4" /> {pkg.duration}
           </CardDescription>
+          <CardDescription className="flex items-center font-semibold">
+            Additional Rs.{pkg.additional}/hr
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -78,6 +81,11 @@ export default function SessionDetails({ pkgIndex, pkgType }: Props) {
                   </div>
                 ))}
               </div>
+              {pkg.name === "Professional Session" && (
+                <div className="w-full flex items-center justify-center my-5">
+                  20% Plus, Enjoy Discounts Camera Rentals!
+                </div>
+              )}
             </div>
           )}
           <Button

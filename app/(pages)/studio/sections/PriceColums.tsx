@@ -134,7 +134,8 @@ const PriceColums = () => {
       </Tabs>
       <div className="mt-10 text-center">
         <p className="text-muted-foreground mb-4">
-          Plus, Enjoy Discounts on Camera Rentals!
+          10 Plus Backgrounds with Walmart System. Colours can be changed easily
+          as needed.
         </p>
         <Button variant="outline" size="lg" className="gap-2">
           Need more time?  Contact us
