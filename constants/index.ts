@@ -330,11 +330,11 @@ export const cycPackages = [
 
 export const menuItems = [
   { title: "Gallery", href: "/gallery" },
-  { title: "Studio", href: "/studio" },
   { title: "Portfolio", href: "/portfolio" },
   { title: "Sessions", href: "/sessions" },
   { title: "Services", href: "/services" },
-  { title: "Rent", href: "/rent" },
+  { title: "Studio Rent", href: "/studio" },
+  { title: "Camera Rent", href: "/rent" },
   { title: "Blog", href: "/blog" },
   { title: "Contact", href: "/contact" },
 ];

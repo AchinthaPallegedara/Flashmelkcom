@@ -13,7 +13,7 @@ export default function Home() {
 
         {/* Framer Motion animated background */}
         <motion.div
-          className="absolute inset-0 bg-[url('/bg.webp')] bg-cover bg-center"
+          className="absolute inset-0 bg-[url('https://img.flashmelk.com/bg.webp')] bg-cover bg-center"
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"], // Pan left to right, then reverse
             scale: [1, 1.1, 1], // Zoom in and out
