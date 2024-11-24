@@ -30,6 +30,7 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "ken-burns": "ken-burns 20s ease-in-out infinite",
         "animate-pan-360": "pan-360 30s linear infinite",
+        fadeIn: "fadeIn 1s ease-in-out",
       },
       keyframes: {
         marquee: {
@@ -75,6 +76,16 @@ const config: Config = {
           },
           "100%": {
             backgroundPosition: "100% 50%",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
           },
         },
       },

@@ -17,10 +17,12 @@ export default function ContactPage() {
       <Navbar />
       <div className="container  py-12">
         <div className="flex w-full md:items-start md:justify-between max-md:flex-col">
-          <h1 className="text-7xl md:text-6xl  font-semibold max-md:text-5xl ">
-            Get in Touch
+          <h1 className="text-6xl md:text-6xl font-anton font-black max-md:text-5xl animate-fadeIn">
+            Have Questions?
+            <br />
+            Contact Us!
           </h1>
-          <p className="text-lg text-zinc-500  md:text-right md:w-72 ">
+          <p className="text-lg text-zinc-500  md:text-right md:w-72 mt-5">
             Use google maps to find us or contact us directly for any inquiries.
           </p>
         </div>

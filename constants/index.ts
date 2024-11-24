@@ -341,7 +341,7 @@ export const menuItems = [
 
 export const sessions = [
   {
-    link: "#",
+    link: "/sessions/individualquick",
     title: "Individual - Quick Session",
     description:
       "Ideal for professionals in need of high quality headshots urgently.",
@@ -352,42 +352,101 @@ export const sessions = [
   },
   {
     link: "#",
-    title: "Individual - Quick Session",
+    title: "Individual - Branding & Creative",
     description:
-      "Ideal for professionals in need of high quality headshots urgently.",
-    price: "10 000.00",
-    duration: "30 min",
-    softCopies: 5,
+      "Ideal for professionals, actors, models & creators in need of multiple looks and outfits.",
+    price: "25 000.00",
+    duration: "60 min",
+    softCopies: 20,
     imgLink: "/2.webp",
   },
   {
     link: "#",
-    title: "Individual - Quick Session",
+    title: "Individual - Executive",
     description:
-      "Ideal for professionals in need of high quality headshots urgently.",
+      "Ideal for professionals, actors, models & creators in need of multiple looks and outfits",
     price: "10 000.00",
+    duration: "45 min",
+    softCopies: 10,
+    imgLink: "/8.webp",
+  },
+  {
+    link: "#",
+    title: "Family Session",
+    description:
+      "Ideal for families or couples who'd like to make some permanent memories",
+    price: "15 000.00",
     duration: "30 min",
+    softCopies: 10,
+    imgLink: "/7.webp",
+  },
+  {
+    link: "#",
+    title: "Graduation - ALL INCLUSIVE Session",
+    description:
+      "Ideal families or couples in need of a group session as well as individual headshots and portraits in multiple settings and outfits",
+    price: "25 000.00",
+    duration: "60 min",
+    softCopies: 20,
+    imgLink: "/9.webp",
+  },
+  {
+    link: "#",
+    title: "Family - Maternity",
+    description:
+      "Ideal for couple and families to make memories of their pregnancy as well as new borns",
+    price: "25 000.00",
+    duration: "60 min",
+    softCopies: 20,
+    imgLink: "/1.webp",
+  },
+  {
+    link: "#",
+    title: "Family - ALL INCLUSIVE Session",
+    description:
+      "Ideal families or couples in need of a group session as well as individual headshots and portraits in multiple settings and outfits",
+    price: "25 000.00",
+    duration: "60 min",
+    softCopies: 20,
+    imgLink: "/2.webp",
+  },
+  {
+    link: "#",
+    title: "Graduation - Quick Session",
+    description: "Ideal if you only need a few single and family pic",
+    price: "8 500.00",
+    duration: "15 min",
     softCopies: 5,
     imgLink: "/8.webp",
   },
   {
     link: "#",
-    title: "Individual - Quick Session",
+    title: "Graduation - Standard Session",
     description:
-      "Ideal for professionals in need of high quality headshots urgently.",
-    price: "10 000.00",
+      "Ideal if you need several single pics with and without cloak. Multiple family pictures in different configurations",
+    price: "14 000.00",
     duration: "30 min",
-    softCopies: 5,
+    softCopies: 10,
     imgLink: "/7.webp",
   },
   {
     link: "#",
-    title: "Individual - Quick Session",
+    title: "Model Portfolio - Pro",
     description:
-      "Ideal for professionals in need of high quality headshots urgently.",
-    price: "10 000.00",
-    duration: "30 min",
-    softCopies: 5,
+      "Create an all encompassing portfolio with multiple looks and settings.",
+    price: "45 000.00",
+    duration: "2 hours",
+    softCopies: 30,
     imgLink: "/9.webp",
+  },
+  {
+    link: "#",
+    title: "Model Portfolio - Standard",
+    description:
+      "For new models to showcase their talents with a range of creative looks and concepts",
+    price: "30 000.00",
+    duration: "1 hour",
+    softCopies: 20,
+    imgLink: "/3.webp",
   },
 ];
