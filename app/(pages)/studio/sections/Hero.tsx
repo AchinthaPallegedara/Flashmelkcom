@@ -15,12 +15,12 @@ const Hero = () => {
       <div className="container flex items-center justify-between my-24 max-md:my-8 max-md:flex-col">
         <div className=" w-[50vw] max-md:w-full">
           <h1 className="text-8xl font-anton max-md:text-5xl">
-            Transform Your Vision Into Reality.
+            Where Creativity Meets Space
           </h1>
         </div>
         <div className="w-[28vw] flex flex-col max-md:w-full max-md:mt-5">
           <p className="text-black text-xl font-medium ">
-            A modern studio space designed for creators, artists, and innovators
+            The Largest Studio Space in the City, Ready for Your Vision!
           </p>
           <div className="flex space-x-2 my-4 max-md:mt-10">
             <Input

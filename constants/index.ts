@@ -220,11 +220,43 @@ export const videoFeaturesProfessional = [
   "Fully Air-Conditioned",
   "Dining area + parking",
 ];
+export const cycFeaturesProfessional = [
+  "03 x Godox AD600B Lights ⚡",
+  "ZSYB Y300S Led Video x 01 Lights ⚡",
+  "Parabolic 7-ft white Umbrella",
+  "Godox 120L Parabolic softbox x 02",
+  "01 x Godox strip softbox 35x160cm",
+  "Curved 160cm Eye Lighter",
+  "C-stand with boom arm",
+  "Large Reflector 5in1",
+  "55” 4K Tether Station  + Cable",
+  "03 x White Props Boxes",
+  "Optical Gobo snoot light projector",
+  "Makeup 💄 Dressing room",
+  "Fully Air-Conditioned",
+  "Dining area + parking",
+];
+export const cycFeaturesPlatinum = [
+  "03 x Godox AD600B Lights ⚡",
+  "ZSYB Y300S Led Video x 01 Lights ⚡",
+  "Parabolic 7-ft white Umbrella",
+  "Godox 120L Parabolic softbox x 02",
+  "01 x Godox strip softbox 35x160cm",
+  "Curved 160cm Eye Lighter",
+  "C-stand with boom arm",
+  "Large Reflector 5in1",
+  "55” 4K Tether Station  + Cable",
+  "03 x White Props Boxes",
+  "Optical Gobo snoot light projector",
+  "Makeup 💄 Dressing room",
+  "Fully Air-Conditioned",
+  "Dining area + parking",
+];
 
 export const photoPackages = [
   {
     name: "Basic Session",
-    alt: "i/basic",
+    alt: "p/basic",
     price: "Rs 7,500",
     duration: "2 HOURS",
     additional: "3500",
@@ -232,7 +264,7 @@ export const photoPackages = [
   },
   {
     name: "Standard Session",
-    alt: "i/standard",
+    alt: "p/standard",
     price: "Rs 14,500",
     duration: "5 HOURS",
     additional: "3000",
@@ -241,7 +273,7 @@ export const photoPackages = [
   },
   {
     name: "Professional Session",
-    alt: "i/professional",
+    alt: "p/professional",
     price: "Rs 22,500",
     duration: "8 HOURS",
     additional: "3000",
@@ -273,6 +305,26 @@ export const videoPackages = [
     duration: "8 HOURS",
     additional: "3000",
     includedFeatures: videoFeaturesProfessional,
+  },
+];
+
+export const cycPackages = [
+  {
+    name: "Professional Session",
+    alt: "c/professional",
+    price: "Rs 22,500",
+    duration: "5 HOURS",
+    additional: "4500",
+    includedFeatures: cycFeaturesProfessional,
+    popular: true,
+  },
+  {
+    name: "Platinum Session",
+    alt: "c/platinum",
+    price: "Rs 35,000",
+    duration: "8 HOURS",
+    additional: "4500",
+    includedFeatures: cycFeaturesPlatinum,
   },
 ];
 

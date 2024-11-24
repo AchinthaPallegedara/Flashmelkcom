@@ -9,7 +9,7 @@ const page = () => {
       <Navbar />
       <div className="container space-y-5">
         <SessionDetails pkgIndex={1} pkgType="image" />
-        <BookingCalendar packageType="I-standard" packageDuration={5} />
+        <BookingCalendar packageType="P-standard" packageDuration={5} />
       </div>
     </div>
   );

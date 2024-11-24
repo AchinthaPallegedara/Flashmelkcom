@@ -17,7 +17,7 @@ export default function ContactPage() {
       <Navbar />
       <div className="container  py-12">
         <div className="flex w-full md:items-start md:justify-between max-md:flex-col">
-          <h1 className="font-anton text-7xl md:text-6xl font-black max-md:text-5xl ">
+          <h1 className="text-7xl md:text-6xl  font-semibold max-md:text-5xl ">
             Get in Touch
           </h1>
           <p className="text-lg text-zinc-500  md:text-right md:w-72 ">
@@ -51,21 +51,28 @@ export default function ContactPage() {
                 inquiries.
               </p>
               <div className="space-y-4 pl-2">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-main-500 mt-1" />
-                  <p className="w-44">
-                    62/10/2/1 Old Kesbewa Rd, Nugegoda 10250, Colombo, Sri Lanka
-                  </p>
-                </div>
-                <Link
-                  href="https://wa.me/+94777201502"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center w-44 gap-3 hover:text-main-500 transition-colors"
-                >
+                <div className="flex items-center gap-3  transition-colors">
                   <Phone className="h-5 w-5 text-main-500" />
-                  <span>+94 77 720 1502</span>
-                </Link>
+                  <div className="flex gap-2">
+                    <Link
+                      href="https://wa.me/+94777201502"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-main-500"
+                    >
+                      <span>+94 77 720 1502</span>
+                    </Link>
+                    |
+                    <Link
+                      href="tel:+94117040400"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-main-500"
+                    >
+                      <span>+94 11 704 0400</span>
+                    </Link>
+                  </div>
+                </div>
                 <Link
                   href="mailto:info@flashmelk.com"
                   className="flex items-center w-48 gap-3 hover:text-main-500 transition-colors"
@@ -73,6 +80,12 @@ export default function ContactPage() {
                   <Mail className="h-5 w-5 text-main-500" />
                   <span>info@flashmelk.com</span>
                 </Link>
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-main-500 mt-1" />
+                  <p className="w-44">
+                    62/10/2/1 Old Kesbewa Rd, Nugegoda 10250, Colombo, Sri Lanka
+                  </p>
+                </div>
               </div>
               {/* <div className="flex gap-5 mt-10">
                 <Image

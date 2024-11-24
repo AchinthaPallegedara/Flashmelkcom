@@ -12,11 +12,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { format, parseISO, addHours } from "date-fns";
+import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z.string().email(),
   phone: z.string().min(15).max(16),
+  note: z.optional(z.string().max(500)),
 });
 
 interface ContactFormProps {
@@ -38,6 +40,7 @@ export function ContactForm({
       name: "",
       email: "",
       phone: "",
+      note: "",
     },
   });
 
@@ -110,6 +113,23 @@ export function ContactForm({
                   <FormLabel>Phone</FormLabel>
                   <FormControl>
                     <PhoneInput {...field} defaultCountry="LK" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="note"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Note</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Type your message here."
+                      className="resize-none"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

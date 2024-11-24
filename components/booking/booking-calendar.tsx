@@ -57,12 +57,14 @@ export interface Booking {
 
 interface BookingCalendarProps {
   packageType:
-    | "I-basic"
-    | "I-standard"
-    | "I-professional"
+    | "P-basic"
+    | "P-standard"
+    | "P-professional"
     | "V-basic"
     | "V-standard"
-    | "V-professional";
+    | "V-professional"
+    | "C-professional"
+    | "C-platinum";
   packageDuration: number;
 }
 
@@ -173,6 +175,7 @@ export default function BookingCalendar({
     name: string;
     email: string;
     phone: string;
+    note?: string;
   }) => {
     if (!selectedTime) return;
     const endTime = format(

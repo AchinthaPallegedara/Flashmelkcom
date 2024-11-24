@@ -10,25 +10,29 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Clock2, ChevronDown, ChevronUp } from "lucide-react";
-import { photoPackages, videoPackages } from "@/constants";
+import { cycPackages, photoPackages, videoPackages } from "@/constants";
 
 type Props = {
   pkgIndex: number;
-  pkgType: "image" | "video";
+  pkgType: "image" | "video" | "cyc";
 };
 
 export default function SessionDetails({ pkgIndex, pkgType }: Props) {
   const [showAllDetails, setShowAllDetails] = useState(false);
 
   const pkg =
-    pkgType === "image" ? photoPackages[pkgIndex] : videoPackages[pkgIndex];
+    pkgType === "image"
+      ? photoPackages[pkgIndex]
+      : pkgType === "video"
+      ? videoPackages[pkgIndex]
+      : cycPackages[pkgIndex];
   const initialFeatureCount = 3;
 
   const toggleDetails = () => {
     setShowAllDetails(!showAllDetails);
   };
 
-  const extraProps = [
+  const extraPropsBasic = [
     "Godox Curved Eyelighter - Rs.1000",
     "Godox 7 feet Umbrella - Rs.1500",
     "Godox extra AD600 light - Rs.2500",
@@ -39,6 +43,17 @@ export default function SessionDetails({ pkgIndex, pkgType }: Props) {
     "Camera lens Starting from - Rs.3000",
     "Clipon mics - Rs.2500",
     "Rode PodMic - Rs.4000",
+  ];
+
+  const extraProps = [
+    "Godox extra AD600 light - Rs.2500",
+    "Video light with softbox - Rs.3500",
+    "RGB Ice Light - Rs.2500",
+    "Camera starting from - Rs.5500",
+    "Video Tripods - Rs.2000",
+    "Camera lens Starting from - Rs.3000",
+    "Clipon mics - Rs.2500",
+    "Rode PodMic with arm - Rs.4000",
   ];
 
   return (
@@ -74,16 +89,32 @@ export default function SessionDetails({ pkgIndex, pkgType }: Props) {
                 Additional Props Available
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {extraProps.map((prop, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <span className="text-xl">•</span>
-                    <span className="text-sm">{prop}</span>
-                  </div>
-                ))}
+                {pkg.name !== "Basic Session"
+                  ? extraProps.map((prop, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <span className="text-xl">•</span>
+                        <span className="text-sm">{prop}</span>
+                      </div>
+                    ))
+                  : extraPropsBasic.map((prop, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <span className="text-xl">•</span>
+                        <span className="text-sm">{prop}</span>
+                      </div>
+                    ))}
               </div>
-              {pkg.name === "Professional Session" && (
-                <div className="w-full flex items-center justify-center my-5">
+              {pkg.duration === "8 HOURS" && (
+                <div className="w-full flex items-center justify-center text-center font-medium  my-5">
                   20% Plus, Enjoy Discounts Camera Rentals!
+                </div>
+              )}
+              {(pkg.alt === "c/platinum" || pkg.alt === "c/professional") && (
+                <div className="w-full flex items-center text-center font-medium justify-center my-5">
+                  30ft cyclorama wall section adjoins 14ft wall section in an
+                  &quot;L&quot; shaped cove
+                  <br />
+                  225 sq ft Room for Wardrobe & Makeup (includes basic vanity,
+                  couch, chairs, table)
                 </div>
               )}
             </div>

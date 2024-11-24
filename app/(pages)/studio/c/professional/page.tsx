@@ -8,8 +8,8 @@ const page = () => {
     <div className="mb-16 ">
       <Navbar />
       <div className="container space-y-5">
-        <SessionDetails pkgIndex={2} pkgType="image" />
-        <BookingCalendar packageType="I-professional" packageDuration={8} />
+        <SessionDetails pkgIndex={0} pkgType="cyc" />
+        <BookingCalendar packageType="C-professional" packageDuration={5} />
       </div>
     </div>
   );

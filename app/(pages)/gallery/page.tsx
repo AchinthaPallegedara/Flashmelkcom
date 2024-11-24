@@ -225,37 +225,37 @@ const Page = () => {
               </TabsContent>
               <TabsContent value="FASHION">
                 {isMobile ? (
-                  <MasonryGalleryDesktop images={images} />
-                ) : (
                   <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
                 )}
               </TabsContent>
               <TabsContent value="COMMERCIAL">
                 {isMobile ? (
-                  <MasonryGalleryDesktop images={images} />
-                ) : (
                   <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
                 )}
               </TabsContent>
               <TabsContent value="EDITORIAL">
                 {isMobile ? (
-                  <MasonryGalleryDesktop images={images} />
-                ) : (
                   <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
                 )}
               </TabsContent>
               <TabsContent value="BEAUTY">
                 {isMobile ? (
-                  <MasonryGalleryDesktop images={images} />
-                ) : (
                   <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
                 )}
               </TabsContent>
               <TabsContent value="CORPORATE_PROFILES">
                 {isMobile ? (
-                  <MasonryGalleryDesktop images={images} />
-                ) : (
                   <MasonryGalleryMobile images={images} />
+                ) : (
+                  <MasonryGalleryDesktop images={images} />
                 )}
               </TabsContent>
             </>
