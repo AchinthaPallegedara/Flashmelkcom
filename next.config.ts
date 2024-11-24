@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: `https://dashboard.flashmelk.com/api/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
       },
     ];
   },
