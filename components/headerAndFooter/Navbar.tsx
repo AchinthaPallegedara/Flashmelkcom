@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="flex-1 flex justify-end cursor-pointer  ">
         <Menu
           size={30}
-          className=" hover:text-main-500  transition-all hover:size-8"
+          className=" hover:text-main-500  transition-all duration-300 hover:size-8"
         />
       </div>
     </header>

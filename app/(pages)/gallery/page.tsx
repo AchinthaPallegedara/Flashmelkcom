@@ -120,37 +120,37 @@ const Page = () => {
             <TabsList className="hidden sm:flex bg-transparent space-x-8  text-zinc-500 max-lg:space-x-1 max-md:space-x-0 ">
               <TabsTrigger
                 value="LATEST"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500 tracking-wider"
               >
                 LATEST
               </TabsTrigger>
               <TabsTrigger
                 value="FASHION"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  tracking-wider"
               >
                 FASHION
               </TabsTrigger>
               <TabsTrigger
                 value="COMMERCIAL"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  tracking-wider"
               >
                 COMMERCIAL
               </TabsTrigger>
               <TabsTrigger
                 value="EDITORIAL"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  tracking-wider"
               >
                 EDITORIAL
               </TabsTrigger>
               <TabsTrigger
                 value="BEAUTY"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  tracking-wider"
               >
                 BEAUTY
               </TabsTrigger>
               <TabsTrigger
                 value="CORPORATE_PROFILES"
-                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all tracking-wider"
+                className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  tracking-wider"
               >
                 CORPORATE PROFILES
               </TabsTrigger>
@@ -159,25 +159,25 @@ const Page = () => {
               <div className="text-center">
                 <TabsTrigger
                   value="LATEST"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   LATEST
                 </TabsTrigger>
                 <TabsTrigger
                   value="FASHION"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   FASHION
                 </TabsTrigger>
                 <TabsTrigger
                   value="COMMERCIAL"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   COMMERCIAL
                 </TabsTrigger>
                 <TabsTrigger
                   value="EDITORIAL"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   EDITORIAL
                 </TabsTrigger>
@@ -185,13 +185,13 @@ const Page = () => {
               <div>
                 <TabsTrigger
                   value="BEAUTY"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   BEAUTY
                 </TabsTrigger>
                 <TabsTrigger
                   value="CORPORATE_PROFILES"
-                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all underline-offset-2"
+                  className="data-[state=active]:text-zinc-500 text-xs font-normal hover:underline transition-all duration-500  underline-offset-2"
                 >
                   CORPORATE PROFILES
                 </TabsTrigger>
@@ -204,7 +204,7 @@ const Page = () => {
           )}
 
           {loading ? (
-            <div className=" grid grid:cols-1 md:grid-cols-4 gap-4 transition-all">
+            <div className=" grid grid:cols-1 md:grid-cols-4 gap-4 transition-all duration-300">
               {Array(12)
                 .fill("")
                 .map((_, idx) => (
