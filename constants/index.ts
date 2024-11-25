@@ -351,7 +351,7 @@ export const sessions = [
     imgLink: "/1.webp",
   },
   {
-    link: "#",
+    link: "/sessions/individualbranding&creative",
     title: "Individual - Branding & Creative",
     description:
       "Ideal for professionals, actors, models & creators in need of multiple looks and outfits.",
@@ -361,7 +361,7 @@ export const sessions = [
     imgLink: "/2.webp",
   },
   {
-    link: "#",
+    link: "/sessions/individualexecutive",
     title: "Individual - Executive",
     description:
       "Ideal for professionals, actors, models & creators in need of multiple looks and outfits",
@@ -371,7 +371,7 @@ export const sessions = [
     imgLink: "/8.webp",
   },
   {
-    link: "#",
+    link: "/sessions/familysession",
     title: "Family Session",
     description:
       "Ideal for families or couples who'd like to make some permanent memories",
@@ -381,7 +381,7 @@ export const sessions = [
     imgLink: "/7.webp",
   },
   {
-    link: "#",
+    link: "/sessions/graduationallInclusivesession",
     title: "Graduation - ALL INCLUSIVE Session",
     description:
       "Ideal families or couples in need of a group session as well as individual headshots and portraits in multiple settings and outfits",
@@ -391,7 +391,7 @@ export const sessions = [
     imgLink: "/9.webp",
   },
   {
-    link: "#",
+    link: "/sessions/familymaternity",
     title: "Family - Maternity",
     description:
       "Ideal for couple and families to make memories of their pregnancy as well as new borns",
@@ -401,7 +401,7 @@ export const sessions = [
     imgLink: "/1.webp",
   },
   {
-    link: "#",
+    link: "/sessions/familyallinclusivesession",
     title: "Family - ALL INCLUSIVE Session",
     description:
       "Ideal families or couples in need of a group session as well as individual headshots and portraits in multiple settings and outfits",
@@ -411,7 +411,7 @@ export const sessions = [
     imgLink: "/2.webp",
   },
   {
-    link: "#",
+    link: "/sessions/graduationquicksession",
     title: "Graduation - Quick Session",
     description: "Ideal if you only need a few single and family pic",
     price: "8 500.00",
@@ -420,7 +420,7 @@ export const sessions = [
     imgLink: "/8.webp",
   },
   {
-    link: "#",
+    link: "/sessions/graduationstandardsession",
     title: "Graduation - Standard Session",
     description:
       "Ideal if you need several single pics with and without cloak. Multiple family pictures in different configurations",
@@ -430,7 +430,7 @@ export const sessions = [
     imgLink: "/7.webp",
   },
   {
-    link: "#",
+    link: "/sessions/modelportfoliopro",
     title: "Model Portfolio - Pro",
     description:
       "Create an all encompassing portfolio with multiple looks and settings.",
@@ -440,7 +440,7 @@ export const sessions = [
     imgLink: "/9.webp",
   },
   {
-    link: "#",
+    link: "/sessions/modelportfoliostandard",
     title: "Model Portfolio - Standard",
     description:
       "For new models to showcase their talents with a range of creative looks and concepts",

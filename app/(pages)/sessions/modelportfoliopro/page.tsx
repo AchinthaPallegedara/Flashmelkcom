@@ -9,11 +9,8 @@ const page = () => {
     <div className="mb-16 ">
       <Navbar />
       <div className="container space-y-5">
-        <Details sessionIndex={0} />
-        <BookingCalendar
-          packageType="Individual-QuickSession"
-          packageDuration={1}
-        />
+        <Details sessionIndex={9} />
+        <BookingCalendar packageType="ModelPortfolio-Pro" packageDuration={2} />
       </div>
     </div>
   );

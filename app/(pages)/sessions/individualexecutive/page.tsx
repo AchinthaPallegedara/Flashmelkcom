@@ -9,9 +9,9 @@ const page = () => {
     <div className="mb-16 ">
       <Navbar />
       <div className="container space-y-5">
-        <Details sessionIndex={0} />
+        <Details sessionIndex={2} />
         <BookingCalendar
-          packageType="Individual-QuickSession"
+          packageType="Individual-Executive"
           packageDuration={1}
         />
       </div>
