@@ -1,3 +1,8 @@
+// import { CameraRental } from "@/components/camera/camera-rental";
+
+// export default function Page() {
+//   return <CameraRental />;
+// }
 import { Construction } from "lucide-react";
 import React from "react";
 
