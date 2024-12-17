@@ -39,7 +39,7 @@ export function ProductCard({ product, onRequest }: ProductCardProps) {
             <span className="text-sm text-gray-600">Per Night</span>
           </div>
           <Button
-            className="w-full rounded-none flex items-center justify-center gap-2 text-base hover:bg-main-500 hover:text-black transition-colors "
+            className="w-full rounded-none flex items-center justify-center gap-2 text-base  "
             onClick={() => onRequest(product)}
           >
             Rent Now

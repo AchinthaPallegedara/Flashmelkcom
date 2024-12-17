@@ -4,12 +4,10 @@ import { useState, useEffect } from "react";
 import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { ProductCard } from "./product-card";
 import { FilterSidebar } from "./filter-sidebar";
-
 import Footer from "../headerAndFooter/Footer";
 import Image from "next/image";
 import { products } from "@/constants";
@@ -29,12 +27,28 @@ export function CameraRental() {
   };
 
   useEffect(() => {
-    const filtered = products.filter(
-      (product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        (!selectedCategory || product.category === selectedCategory) &&
-        (!selectedBrand || product.brand === selectedBrand)
-    );
+    const MAIN_BRANDS = ["Sony", "Canon", "Sigma", "Godox", "NiceFoto"];
+
+    const filtered = products.filter((product) => {
+      // Filter by search term
+      const matchesSearch = product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+
+      // Filter by category
+      const matchesCategory =
+        !selectedCategory || product.category === selectedCategory;
+
+      // Filter by brand
+      const matchesBrand =
+        !selectedBrand ||
+        (selectedBrand === "Other"
+          ? !MAIN_BRANDS.includes(product.brand) // Exclude main brands
+          : product.brand === selectedBrand); // Exact match for selected brand
+
+      return matchesSearch && matchesCategory && matchesBrand;
+    });
+
     setFilteredProducts(filtered);
   }, [searchTerm, selectedCategory, selectedBrand]);
 
@@ -45,16 +59,14 @@ export function CameraRental() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="hidden md:block">
-              <div className="">
-                <div className="flex items-center justify-center space-x-2">
-                  <Image
-                    src={"/flashmelkIcon.svg"}
-                    alt="flashmelk_logo"
-                    width={30}
-                    height={30}
-                  />
-                  <p className="text-3xl font-anton">FLASH ME LK</p>
-                </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Image
+                  src={"/flashmelkIcon.svg"}
+                  alt="flashmelk_logo"
+                  width={30}
+                  height={30}
+                />
+                <p className="text-3xl font-anton">FLASH ME LK</p>
               </div>
             </div>
 
@@ -79,10 +91,8 @@ export function CameraRental() {
         </div>
       </header>
 
-      {/* <Navigation /> */}
-
       {/* Main Content */}
-      <main className="container  px-4 pb-16">
+      <main className="container px-4 pb-16">
         <h2 className="text-3xl font-bold mb-6 mt-12">Rent Your Gear</h2>
 
         <div className="flex flex-col lg:flex-row gap-8">
@@ -116,13 +126,21 @@ export function CameraRental() {
           {/* Products Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onRequest={handleRequest}
-                />
-              ))}
+              {filteredProducts.length === 0 ? (
+                <div className="text-center col-span-full">
+                  <p className="text-lg text-gray-600">
+                    No products found. Try adjusting your filters.
+                  </p>
+                </div>
+              ) : (
+                filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onRequest={handleRequest}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>

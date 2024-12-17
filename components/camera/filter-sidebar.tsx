@@ -31,13 +31,11 @@ export function FilterSidebar({
       </div>
 
       <div className="space-y-6">
-        {/* Store Location Filter */}
-
         {/* Category Filter */}
         <div>
           <h4 className="font-semibold mb-3">Category</h4>
           <div className="space-y-3">
-            {["DSLR", "Mirrorless", "Lens", "Drone", "Action Camera"].map(
+            {["DSLR", "Mirrorless", "Lens", "Light", "Mic", "Live Podcast"].map(
               (category) => (
                 <label
                   key={category}
@@ -62,20 +60,22 @@ export function FilterSidebar({
         <div>
           <h4 className="font-semibold mb-3">Brand</h4>
           <div className="space-y-3">
-            {["Sony", "Canon", "Nikon", "Sigma", "Fujifilm"].map((brand) => (
-              <label
-                key={brand}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <Checkbox
-                  checked={selectedBrand === brand}
-                  onCheckedChange={() =>
-                    setSelectedBrand(selectedBrand === brand ? null : brand)
-                  }
-                />
-                <span className="text-sm">{brand}</span>
-              </label>
-            ))}
+            {["Sony", "Canon", "Sigma", "Godox", "NiceFoto", "Other"].map(
+              (brand) => (
+                <label
+                  key={brand}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <Checkbox
+                    checked={selectedBrand === brand}
+                    onCheckedChange={() =>
+                      setSelectedBrand(selectedBrand === brand ? null : brand)
+                    }
+                  />
+                  <span className="text-sm">{brand}</span>
+                </label>
+              )
+            )}
           </div>
         </div>
       </div>
