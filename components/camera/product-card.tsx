@@ -36,7 +36,7 @@ export function ProductCard({ product, onRequest }: ProductCardProps) {
             <span className="text-2xl font-bold text-main-500">
               Rs {product.price}
             </span>
-            <span className="text-sm text-gray-600">Per Night</span>
+            <span className="text-sm text-gray-600">Per day*</span>
           </div>
           <Button
             className="w-full rounded-none flex items-center justify-center gap-2 text-base  "
