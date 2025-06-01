@@ -458,7 +458,7 @@ export const products = [
     category: "Mirrorless",
     brand: "Sony",
     price: 6000,
-    image: "https://img.flashmelk.com/Camera/Sony%20A7R3%20Body.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%20A7R3%20Body.jpg`,
   },
   {
     id: 2,
@@ -466,7 +466,7 @@ export const products = [
     category: "Mirrorless",
     brand: "Sony",
     price: 5500,
-    image: "https://img.flashmelk.com/Camera/Sony%20A73%20Body.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%20A73%20Body.jpg`,
   },
   {
     id: 3,
@@ -474,7 +474,7 @@ export const products = [
     category: "Mirrorless",
     brand: "Sony",
     price: 6500,
-    image: "https://img.flashmelk.com/Camera/Sony%20A74%20Body.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%20A74%20Body.jpg`,
   },
   {
     id: 4,
@@ -482,7 +482,7 @@ export const products = [
     category: "Mirrorless",
     brand: "Sony",
     price: 5000,
-    image: "https://img.flashmelk.com/Camera/Sony%20A7S%20II%20Body.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%20A7S%20II%20Body.jpg`,
   },
   {
     id: 5,
@@ -490,7 +490,7 @@ export const products = [
     category: "Lens",
     brand: "Sony",
     price: 2500,
-    image: "https://img.flashmelk.com/Camera/Sony%2024-105mm%20f4%20Lens.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%2024-105mm%20f4%20Lens.jpg`,
   },
   {
     id: 6,
@@ -498,7 +498,7 @@ export const products = [
     category: "Lens",
     brand: "Sony",
     price: 3000,
-    image: "https://img.flashmelk.com/Camera/Sony%2016-35mm%20f4.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%2016-35mm%20f4.jpg`,
   },
   {
     id: 7,
@@ -506,7 +506,7 @@ export const products = [
     category: "Lens",
     brand: "Sony",
     price: 4000,
-    image: "https://img.flashmelk.com/Camera/Sony%2016-35mm%20f2.8.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%2016-35mm%20f2.8.jpg`,
   },
   {
     id: 8,
@@ -514,7 +514,7 @@ export const products = [
     category: "Lens",
     brand: "Sony",
     price: 5500,
-    image: "https://img.flashmelk.com/Camera/Sony%2070-200mm%20f2.8.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%2070-200mm%20f2.8.jpg`,
   },
   {
     id: 9,
@@ -522,7 +522,7 @@ export const products = [
     category: "Lens",
     brand: "Sigma",
     price: 3500,
-    image: "https://img.flashmelk.com/Camera/Sigma%2035mm%20f1.4%20ART.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sigma%2035mm%20f1.4%20ART.jpg`,
   },
   {
     id: 10,
@@ -530,7 +530,7 @@ export const products = [
     category: "Lens",
     brand: "Sigma",
     price: 3500,
-    image: "https://img.flashmelk.com/Camera/Sigma%2050mm%20f1.4%20ART.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sigma%2050mm%20f1.4%20ART.jpg`,
   },
   {
     id: 11,
@@ -538,7 +538,7 @@ export const products = [
     category: "Lens",
     brand: "Sigma",
     price: 3000,
-    image: "https://img.flashmelk.com/Camera/Sigma%2085mm%20f1.4%20ART.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sigma%2085mm%20f1.4%20ART.jpg`,
   },
   {
     id: 12,
@@ -546,7 +546,7 @@ export const products = [
     category: "Lens",
     brand: "Sigma",
     price: 5500,
-    image: "https://img.flashmelk.com/Camera/Sigma%2024-70mm%20f2.0%20ART.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sigma%2024-70mm%20f2.0%20ART.jpg`,
   },
   {
     id: 13,
@@ -554,7 +554,7 @@ export const products = [
     category: "Lens",
     brand: "Sony",
     price: 4000,
-    image: "https://img.flashmelk.com/Camera/Sony%2090mm%20f2.8%20macro.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sony%2090mm%20f2.8%20macro.jpg`,
   },
   {
     id: 14,
@@ -562,7 +562,7 @@ export const products = [
     category: "Mirrorless",
     brand: "Canon",
     price: 6000,
-    image: "https://img.flashmelk.com/Camera/Canon%20R6%20Body.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%20R6%20Body.jpg`,
   },
   {
     id: 15,
@@ -570,7 +570,7 @@ export const products = [
     category: "DSLR",
     brand: "Canon",
     price: 5500,
-    image: "https://img.flashmelk.com/Camera/Canon%205D%20Mark%20IV.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%205D%20Mark%20IV.jpg`,
   },
   {
     id: 16,
@@ -578,7 +578,7 @@ export const products = [
     category: "DSLR",
     brand: "Canon",
     price: 5000,
-    image: "https://img.flashmelk.com/Camera/Canon%206D%20Mark%20ii.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%206D%20Mark%20ii.jpg`,
   },
   {
     id: 17,
@@ -586,7 +586,7 @@ export const products = [
     category: "Lens",
     brand: "Canon",
     price: 2500,
-    image: "https://img.flashmelk.com/Camera/Canon%2024-105%20f4.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%2024-105%20f4.jpg`,
   },
   {
     id: 18,
@@ -594,8 +594,7 @@ export const products = [
     category: "Lens",
     brand: "Canon",
     price: 3500,
-    image:
-      "https://img.flashmelk.com/Camera/Canon%2070-200%20f2.8%20is%20ii.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%2070-200%20f2.8%20is%20ii.jpg`,
   },
   {
     id: 19,
@@ -603,7 +602,7 @@ export const products = [
     category: "Lens",
     brand: "Canon",
     price: 3000,
-    image: "https://img.flashmelk.com/Camera/Canon%2016-35%20f2.8.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%2016-35%20f2.8.jpg`,
   },
   {
     id: 20,
@@ -611,7 +610,7 @@ export const products = [
     category: "Lens",
     brand: "Canon",
     price: 2000,
-    image: "https://img.flashmelk.com/Camera/Canon%2050%20f1.8.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%2050%20f1.8.jpg`,
   },
   {
     id: 21,
@@ -619,7 +618,7 @@ export const products = [
     category: "Lens",
     brand: "Canon",
     price: 3500,
-    image: "https://img.flashmelk.com/Camera/Canon%20100mm%20f2.8%20Macro.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Canon%20100mm%20f2.8%20Macro.jpg`,
   },
   {
     id: 22,
@@ -627,7 +626,7 @@ export const products = [
     category: "Light",
     brand: "Godo",
     price: 3500,
-    image: "https://img.flashmelk.com/Camera/Godo%20AD600BM.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Godo%20AD600BM.jpg`,
   },
   {
     id: 23,
@@ -635,7 +634,7 @@ export const products = [
     category: "Light",
     brand: "Godox",
     price: 2000,
-    image: "https://img.flashmelk.com/Camera/Godox%20V1%20Flash.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Godox%20V1%20Flash.jpg`,
   },
   {
     id: 24,
@@ -643,7 +642,7 @@ export const products = [
     category: "Light",
     brand: "Godox",
     price: 2500,
-    image: "https://img.flashmelk.com/Camera/Godox%201K%20Led%20Panel.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Godox%201K%20Led%20Panel.jpg`,
   },
   {
     id: 25,
@@ -651,8 +650,7 @@ export const products = [
     category: "Light",
     brand: "NiceFoto",
     price: 3500,
-    image:
-      "https://img.flashmelk.com/Camera/NiceFoto%20300W%20video%20light.png",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/NiceFoto%20300W%20video%20light.png`,
   },
   {
     id: 26,
@@ -660,7 +658,7 @@ export const products = [
     category: "Light",
     brand: "ZSYB",
     price: 3500,
-    image: "https://img.flashmelk.com/Camera/ZSYB%20Y300S%20Video%20Light.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/ZSYB%20Y300S%20Video%20Light.jpg`,
   },
   {
     id: 27,
@@ -668,7 +666,7 @@ export const products = [
     category: "Light",
     brand: "NiceFoto",
     price: 2500,
-    image: "https://img.flashmelk.com/Camera/NiceFoto%20Ice%20Light.webp",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/NiceFoto%20Ice%20Light.webp`,
   },
   {
     id: 28,
@@ -676,7 +674,7 @@ export const products = [
     category: "Light",
     brand: "NANLITE",
     price: 6500,
-    image: "https://img.flashmelk.com/Camera/NANLITE%20FC%20-%20500C.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/NANLITE%20FC%20-%20500C.jpg`,
   },
   {
     id: 29,
@@ -684,8 +682,7 @@ export const products = [
     category: "Mic",
     brand: "Sennheiser",
     price: 3000,
-    image:
-      "https://img.flashmelk.com/Camera/Sennheiser%20Wireless%20Lavalier%20Mic.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Sennheiser%20Wireless%20Lavalier%20Mic.jpg`,
   },
   {
     id: 30,
@@ -693,7 +690,7 @@ export const products = [
     category: "Mic",
     brand: "Boya",
     price: 2500,
-    image: "https://img.flashmelk.com/Camera/Boya%20Clipon%20mic.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Boya%20Clipon%20mic.jpg`,
   },
   {
     id: 31,
@@ -701,7 +698,7 @@ export const products = [
     category: "Mic",
     brand: "Rode",
     price: 5000,
-    image: "https://img.flashmelk.com/Camera/Rode%20Podmic%20with%20Arm.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Rode%20Podmic%20with%20Arm.jpg`,
   },
   {
     id: 32,
@@ -709,7 +706,7 @@ export const products = [
     category: "Live Podcast",
     brand: "Attom",
     price: 8500,
-    image: "https://img.flashmelk.com/Camera/Attom%20Mini.webp",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/Attom%20Mini.webp`,
   },
   {
     id: 33,
@@ -717,6 +714,6 @@ export const products = [
     category: "Live Podcast",
     brand: "Unknown",
     price: 6000,
-    image: "https://img.flashmelk.com/Camera/HDMI%20wireless%20Transmiter.jpg",
+    image: `${process.env.NEXT_PUBLIC_IMAGE_URL}/Camera/HDMI%20wireless%20Transmiter.jpg`,
   },
 ];

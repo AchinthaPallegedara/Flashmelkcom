@@ -61,12 +61,12 @@ export function CameraRental() {
             <div className="hidden md:block">
               <div className="flex items-center justify-center space-x-2">
                 <Image
-                  src={"/flashmelkIcon.svg"}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Orangelogo.png`}
                   alt="flashmelk_logo"
-                  width={30}
+                  width={140}
                   height={30}
                 />
-                <p className="text-3xl font-anton">FLASH ME LK</p>
+                {/* <p className="text-3xl font-anton">FLASH ME LK</p> */}
               </div>
             </div>
 

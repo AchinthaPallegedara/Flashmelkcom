@@ -10,10 +10,10 @@ const Footer = () => {
           <div className="flex items-center justify-start max-md:justify-center">
             <Link href="/" className="text-2xl font-bold text-gray-900">
               <Image
-                src="/logowhite.svg"
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Whitelogo.png`}
                 alt="flashmelk_white_logo"
                 width={250}
-                height={300}
+                height={56}
               />
             </Link>
           </div>
